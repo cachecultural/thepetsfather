@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Gracias! — The Pets Father</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="Assets/logotype mobile.png" type="image/x-icon">
+  <style>
+    .thanks-section {
+      padding: 120px 20px 80px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #f4f6f5;
+    }
+    .thanks-card {
+      background: #fff;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 600px;
+      width: 100%;
+    }
+    .thanks-icon {
+      margin-bottom: 24px;
+      color: #7DBB6A; /* Accent green from main styles */
+    }
+    .thanks-title {
+      font-family: inherit; /* falls back to body CSS, but we enforce weight */
+      font-weight: 900;
+      font-size: 2rem;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+    /* Enforce Poppins Black if valid */
+    h1.thanks-title {
+       font-family: var(--font-black, 'Montserrat', sans-serif) !important;
+    }
+    .thanks-desc {
+      font-family: inherit;
+      font-weight: 500;
+      color: rgba(33,33,33,0.7);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .btn--home {
+      display: inline-block;
+      background: #313131; /* using secondary theme color */
+      color: #ffffff;
+      padding: 16px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .btn--home:hover {
+      background: #000;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Minimal -->
+  <header class="header">
+    <div class="container header__inner" style="justify-content: center; padding: 20px 0;">
+      <a href="index.html" class="header__logo" aria-label="The Pets Father — Inicio">
+        <img src="Assets/logo black font.webp" alt="The Pets Father" width="160" height="auto">
+      </a>
+    </div>
+  </header>
+
+  <main class="thanks-section">
+    <div class="thanks-card">
+      <svg class="thanks-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <h1 class="thanks-title">¡Gracias por enviar tu información!</h1>
+      <p class="thanks-desc">Revisaremos tu solicitud y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.</p>
+      <a href="index.html" class="btn--home">Volver al inicio</a>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      const translations = {
+        '¡Gracias por enviar tu información!': 'Thank you for submitting your information!',
+        'Revisaremos tu solicitud y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.': 'We will review your application and contact you shortly to design the best plan for your dog.',
+        'Volver al inicio': 'Back to home'
+      };
+      
+      const savedLang = localStorage.getItem('tpf-lang');
+      if (savedLang === 'en') {
+        document.title = 'Thank you! — The Pets Father';
+        
+        const walkDom = function(node) {
+          if (node.nodeType === 3) {
+            let trimmed = node.nodeValue.trim();
+            if (translations[trimmed]) {
+              node.nodeValue = node.nodeValue.replace(trimmed, translations[trimmed]);
+            }
+          } else if (node.nodeType === 1 && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+            for (let i = 0; i < node.childNodes.length; i++) {
+              walkDom(node.childNodes[i]);
+            }
+          }
+        };
+        walkDom(document.body);
+      }
+    })();
+  </script>
+</body>
+</html>
