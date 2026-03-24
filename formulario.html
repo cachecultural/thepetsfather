@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Admisión — The Pets Father</title>
+  <meta name="description" content="Completa el formulario de admisión para que podamos diseñar el plan de entrenamiento más adecuado para tu perro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Form Page Specific Styles ── */
+
+    .form-page {
+      min-height: 100vh;
+      background: var(--color-bg);
+      padding-top: 5rem; /* offset for fixed header */
+    }
+
+    /* ── Page Hero ── */
+    .form-hero {
+      background: var(--color-dark-deep);
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+
+    .form-hero__eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-green);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .form-hero__title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--color-white);
+      line-height: 1.15;
+      margin: 0 auto 1.25rem;
+      max-width: 620px;
+    }
+
+    .form-hero__desc {
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      color: rgba(255, 255, 255, 0.65);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── Form Container ── */
+    .form-container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 5vw, 4rem) var(--space-md);
+    }
+
+    /* ── Progress Bar ── */
+    .form-progress {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }
+
+    .form-progress::-webkit-scrollbar { display: none; }
+
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .progress-step__dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 2px solid rgba(33, 33, 33, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-text-light);
+      transition: all var(--transition-smooth);
+    }
+
+    .progress-step__dot.active {
+      background: var(--color-green);
+      border-color: var(--color-green);
+      color: white;
+    }
+
+    .progress-step__dot.done {
+      background: var(--color-green);
+      border-color: var(--color-green);
+      color: white;
+    }
+
+    .progress-step__line {
+      flex: 1;
+      height: 2px;
+      background: rgba(33, 33, 33, 0.1);
+      min-width: 20px;
+      max-width: 40px;
+    }
+
+    /* ── Form Sections ── */
+    .form-section {
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(33, 33, 33, 0.08);
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .form-section__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(33, 33, 33, 0.07);
+    }
+
+    .form-section__number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-green);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-section__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    /* ── Form Fields ── */
+    .field-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .field-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 560px) {
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.01em;
+    }
+
+    label .required {
+      color: var(--color-green);
+      margin-left: 2px;
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--color-text-light);
+      font-size: 0.775rem;
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(33, 33, 33, 0.14);
+      border-radius: var(--radius-md);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      background: var(--color-bg);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      appearance: none;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="tel"]::placeholder,
+    textarea::placeholder {
+      color: rgba(33, 33, 33, 0.35);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-green);
+      box-shadow: 0 0 0 3px rgba(39, 154, 47, 0.1);
+      background: white;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+
+    /* ── Radio / Checkbox Groups ── */
+    .choice-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .choice-group--inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .choice-option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(33, 33, 33, 0.12);
+      background: var(--color-bg);
+      transition: all var(--transition-fast);
+      user-select: none;
+    }
+
+    .choice-option:hover {
+      border-color: var(--color-green);
+      background: rgba(39, 154, 47, 0.04);
+    }
+
+    .choice-option input[type="radio"],
+    .choice-option input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--color-green);
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+    }
+
+    .choice-option input[type="radio"]:focus,
+    .choice-option input[type="checkbox"]:focus {
+      outline: 2px solid var(--color-green);
+      outline-offset: 2px;
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    .choice-option span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .choice-option:has(input:checked) {
+      border-color: var(--color-green);
+      background: rgba(39, 154, 47, 0.06);
+    }
+
+    /* Conditional sub-field */
+    .conditional-field {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(33, 33, 33, 0.07);
+      display: none;
+    }
+
+    .conditional-field.visible {
+      display: block;
+    }
+
+    /* ── Note / Warning ── */
+    .field-note {
+      font-size: 0.775rem;
+      color: var(--color-text-light);
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .field-note--warning {
+      color: #b35c00;
+      background: #fff8f0;
+      border: 1px solid rgba(179, 92, 0, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* ── Submit Section ── */
+    .form-submit {
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(33, 33, 33, 0.08);
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      text-align: center;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .form-submit__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-submit__desc {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn--submit {
+      background: var(--color-green);
+      color: white;
+      padding: 1rem 2.75rem;
+      font-size: 0.925rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-green);
+      transition: all var(--transition-smooth);
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn--submit:hover {
+      background: var(--color-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(39, 154, 47, 0.3);
+    }
+
+    .btn--submit:focus {
+      outline: 2px solid var(--color-green);
+      outline-offset: 3px;
+    }
+
+    .btn--submit:active {
+      transform: translateY(0);
+    }
+
+    .form-submit__privacy {
+      font-size: 0.75rem;
+      color: rgba(33, 33, 33, 0.4);
+      margin-top: 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* ── Success State ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success__icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(39, 154, 47, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .form-success__icon svg {
+      color: var(--color-green);
+    }
+
+    .form-success__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-success__desc {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      max-width: 440px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+
+    .form-body.submitted .form-sections {
+      display: none;
+    }
+
+    .form-body.submitted .form-success {
+      display: block;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      transition: color var(--transition-fast);
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="The Pets Father — Inicio">
+        <img src="Assets/Logo The Pets Father.png" alt="The Pets Father" width="160" height="48">
+      </a>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">Home</a></li>
+          <li><a href="index.html#servicios" class="header__nav-link">Services</a></li>
+          <li><a href="index.html#contacto" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://api.whatsapp.com/send/?phone=584127922004&text=Hola%2C+me+interesa+el+servicio+de+%2ACuidado+Exclusivo%2A&type=phone_number&app_absent=0"
+        class="btn btn--primary header__cta" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+      <button class="header__menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+      <ul class="mobile-menu__list">
+        <li><a href="index.html" class="mobile-menu__link">Home</a></li>
+        <li><a href="index.html#servicios" class="mobile-menu__link">Services</a></li>
+        <li><a href="index.html#contacto" class="mobile-menu__link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="form-page">
+    <div class="form-hero">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Volver al inicio
+        </a>
+        <p class="form-hero__eyebrow">FORMULARIO DE ADMISIÓN</p>
+        <h1 class="form-hero__title">Cuéntanos sobre tu perro</h1>
+        <p class="form-hero__desc">Queremos conocer a tu perro para ofrecerle el plan más adecuado y ayudarlo a mejorar su comportamiento de forma segura y efectiva.</p>
+      </div>
+    </div>
+
+    <!-- ── Form Body ── -->
+    <div class="form-container">
+      <div class="form-body" id="form-body">
+
+        <!-- Success State -->
+        <div class="form-success" id="form-success" role="alert" aria-live="polite">
+          <div class="form-success__icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="form-success__title">¡Recibimos tu solicitud!</h2>
+          <p class="form-success__desc">Revisaremos la información y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.</p>
+          <a href="index.html" class="btn btn--primary">Volver al inicio</a>
+        </div>
+
+        <div class="form-sections" id="form-sections">
+          <form id="admission-form" novalidate>
+
+            <!-- Section 1 — Sobre ti -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">1</div>
+                <h2 class="form-section__title">Sobre ti</h2>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="nombre">Nombre completo <span class="required" aria-label="requerido">*</span></label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name">
+                </div>
+                <div class="field-group">
+                  <label for="telefono">Teléfono de contacto <span class="required" aria-label="requerido">*</span></label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+58 412 000 0000" required autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="email">Correo electrónico <span class="required" aria-label="requerido">*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <!-- Section 2 — Sobre tu perro -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">2</div>
+                <h2 class="form-section__title">Sobre tu perro</h2>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="nombre-perro">Nombre del perro <span class="required" aria-label="requerido">*</span></label>
+                  <input type="text" id="nombre-perro" name="nombre_perro" placeholder="Ej.: Max" required>
+                </div>
+                <div class="field-group">
+                  <label for="raza-edad">Raza y edad <span class="required" aria-label="requerido">*</span></label>
+                  <input type="text" id="raza-edad" name="raza_edad" placeholder="Ej.: Labrador, 2 años" required>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>Sexo <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group choice-group--inline" role="radiogroup" aria-label="Sexo del perro">
+                  <label class="choice-option">
+                    <input type="radio" name="sexo" value="macho" required>
+                    <span>Macho</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="sexo" value="hembra">
+                    <span>Hembra</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>¿Está esterilizado o castrado? <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group choice-group--inline" role="radiogroup" aria-label="Estado de esterilización">
+                  <label class="choice-option">
+                    <input type="radio" name="esterilizado" value="si" required>
+                    <span>Sí</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="esterilizado" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>¿Cómo adquiriste a tu perro? <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group" role="radiogroup" aria-label="Forma de adquisición">
+                  <label class="choice-option">
+                    <input type="radio" name="adquisicion" value="tienda" required>
+                    <span>Comprado en tienda</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="adquisicion" value="refugio">
+                    <span>Adoptado en refugio</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="adquisicion" value="rescatado">
+                    <span>Rescatado</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="adquisicion" value="regalado">
+                    <span>Regalado</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="tiempo-tenencia">¿Cuánto tiempo hace que lo tienes? <span class="required" aria-label="requerido">*</span></label>
+                <input type="text" id="tiempo-tenencia" name="tiempo_tenencia" placeholder="Ej.: 6 meses, 2 años" required>
+              </div>
+            </div>
+
+            <!-- Section 3 — Experiencia previa -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">3</div>
+                <h2 class="form-section__title">Experiencia previa</h2>
+              </div>
+
+              <div class="field-group">
+                <label>¿Ha recibido tu perro algún tipo de entrenamiento anteriormente? <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group choice-group--inline" role="radiogroup" aria-label="Entrenamiento previo">
+                  <label class="choice-option">
+                    <input type="radio" name="entrenamiento_previo" value="si" id="entrenamiento-si" required>
+                    <span>Sí</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="entrenamiento_previo" value="no" id="entrenamiento-no">
+                    <span>No</span>
+                  </label>
+                </div>
+
+                <div class="conditional-field" id="tipo-entrenamiento-field">
+                  <label for="tipo-entrenamiento">¿Qué tipo de entrenamiento?</label>
+                  <input type="text" id="tipo-entrenamiento" name="tipo_entrenamiento" placeholder="Ej.: obediencia básica, clicker, etc.">
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="proceso-entrenamiento">¿Cómo fue el proceso de entrenamiento anterior? <span class="optional">(opcional)</span></label>
+                <textarea id="proceso-entrenamiento" name="proceso_entrenamiento" placeholder="Progreso, desafíos, resultados..." rows="3"></textarea>
+              </div>
+            </div>
+
+            <!-- Section 4 — Salud y vacunas -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">4</div>
+                <h2 class="form-section__title">Salud y vacunas</h2>
+              </div>
+
+              <div class="field-group">
+                <label for="condicion-especial">¿Tu perro tiene alguna enfermedad, alergia o condición especial? <span class="optional">(opcional)</span></label>
+                <textarea id="condicion-especial" name="condicion_especial" placeholder="Describe cualquier condición de salud relevante..." rows="2"></textarea>
+              </div>
+
+              <div class="field-group">
+                <label>¿Está al día con vacunas y desparasitaciones? <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group choice-group--inline" role="radiogroup" aria-label="Estado de vacunación">
+                  <label class="choice-option">
+                    <input type="radio" name="vacunas" value="si" required>
+                    <span>Sí</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="vacunas" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+                <p class="field-note field-note--warning">Las vacunas al día son obligatorias para todos los programas.</p>
+              </div>
+
+              <div class="field-group">
+                <label for="fecha-vacuna">Fecha de la última vacunación o desparasitación <span class="optional">(opcional)</span></label>
+                <input type="date" id="fecha-vacuna" name="fecha_vacuna">
+              </div>
+
+              <div class="field-group">
+                <label for="estado-reproductivo">¿Tu perro está embarazada, ha parido recientemente o planea criar? <span class="optional">(opcional)</span></label>
+                <input type="text" id="estado-reproductivo" name="estado_reproductivo" placeholder="Sí / No / Detalles...">
+              </div>
+            </div>
+
+            <!-- Section 5 — Comportamiento y temperamento -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">5</div>
+                <h2 class="form-section__title">Comportamiento y temperamento</h2>
+              </div>
+
+              <div class="field-group">
+                <label for="comportamiento-casa">Describe brevemente cómo se comporta en casa <span class="required" aria-label="requerido">*</span></label>
+                <textarea id="comportamiento-casa" name="comportamiento_casa" placeholder="Ej.: tranquilo con la familia, activo en exteriores..." rows="3" required></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="comportamiento-problematico">¿Ha mostrado algún comportamiento problemático? <span class="optional">(opcional)</span></label>
+                <textarea id="comportamiento-problematico" name="comportamiento_problematico" placeholder="Ej.: reactividad, ansiedad, ladridos excesivos, tirones, agresión..." rows="2"></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="heridas-animales">¿Ha herido gravemente a otro animal alguna vez? <span class="required" aria-label="requerido">*</span></label>
+                <input type="text" id="heridas-animales" name="heridas_animales" placeholder="Sí / No / Describa si es necesario" required>
+              </div>
+
+              <div class="field-group">
+                <label>Temperamento general <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group" role="group" aria-label="Temperamento del perro">
+                  <label class="choice-option">
+                    <input type="radio" name="temperamento" value="tranquilo" required>
+                    <span>Tranquilo</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="temperamento" value="ansioso">
+                    <span>Ansioso</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="temperamento" value="reactivo">
+                    <span>Reactivo</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="temperamento" value="sociable">
+                    <span>Sociable</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="temperamento" value="otro">
+                    <span>Otro</span>
+                  </label>
+                  <div class="conditional-field" id="temperamento-otro-field">
+                    <label for="temperamento-otro">Especifica:</label>
+                    <input type="text" id="temperamento-otro" name="temperamento_otro" placeholder="Describe el temperamento...">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 6 — Entorno y rutina -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">6</div>
+                <h2 class="form-section__title">Entorno y rutina</h2>
+              </div>
+
+              <div class="field-group">
+                <label for="convivencia">¿Convive con otros animales o niños? <span class="required" aria-label="requerido">*</span></label>
+                <input type="text" id="convivencia" name="convivencia" placeholder="Sí / No / Indique cuáles" required>
+              </div>
+
+              <div class="field-group">
+                <label for="rutina-diaria">Describe brevemente su rutina diaria <span class="required" aria-label="requerido">*</span></label>
+                <textarea id="rutina-diaria" name="rutina_diaria" placeholder="Ej.: paseos, juegos, tiempo que pasa solo en casa..." rows="3" required></textarea>
+              </div>
+            </div>
+
+            <!-- Section 7 — Alimentación -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">7</div>
+                <h2 class="form-section__title">Alimentación</h2>
+              </div>
+
+              <div class="field-group">
+                <label>Tipo de dieta <span class="required" aria-label="requerido">*</span></label>
+                <div class="choice-group" role="radiogroup" aria-label="Tipo de dieta">
+                  <label class="choice-option">
+                    <input type="radio" name="dieta" value="seca" required>
+                    <span>Comida comercial seca</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="dieta" value="humeda">
+                    <span>Comida húmeda</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="dieta" value="barf">
+                    <span>BARF</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="radio" name="dieta" value="mixta">
+                    <span>Dieta mixta</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="cantidad-frecuencia">Cantidad y frecuencia de alimentación <span class="required" aria-label="requerido">*</span></label>
+                <input type="text" id="cantidad-frecuencia" name="cantidad_frecuencia" placeholder="Ej.: 2 tazas, 2 veces al día" required>
+              </div>
+
+              <div class="field-group">
+                <label for="marcas-alimentos">Marcas o alimentos específicos que consume <span class="optional">(opcional)</span></label>
+                <input type="text" id="marcas-alimentos" name="marcas_alimentos" placeholder="Ej.: Royal Canin, pollo cocido...">
+              </div>
+            </div>
+
+            <!-- Section 8 — Objetivo del entrenamiento -->
+            <div class="form-section">
+              <div class="form-section__header">
+                <div class="form-section__number" aria-hidden="true">8</div>
+                <h2 class="form-section__title">Objetivo del entrenamiento</h2>
+              </div>
+
+              <div class="field-group">
+                <label>¿Qué te gustaría lograr con el entrenamiento? <span class="required" aria-label="requerido">*</span> <span class="optional">(puedes elegir varios)</span></label>
+                <div class="choice-group" role="group" aria-label="Objetivos del entrenamiento">
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="paseos">
+                    <span>Mejor control en paseos</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="conducta_casa">
+                    <span>Conducta más calmada en casa</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="ansiedad">
+                    <span>Reducir ansiedad o estrés</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="socializacion">
+                    <span>Mejor socialización con otros perros</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="habitos">
+                    <span>Mejora general de hábitos y obediencia</span>
+                  </label>
+                  <label class="choice-option">
+                    <input type="checkbox" name="objetivo" value="otro" id="objetivo-otro-check">
+                    <span>Otros</span>
+                  </label>
+                  <div class="conditional-field" id="objetivo-otro-field">
+                    <label for="objetivo-otro">Especifica tu objetivo:</label>
+                    <input type="text" id="objetivo-otro" name="objetivo_otro" placeholder="Describe tu objetivo...">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-submit">
+              <p class="form-submit__title">¡Ya casi terminamos!</p>
+              <p class="form-submit__desc">Revisaremos tu solicitud y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.</p>
+              <button type="submit" class="btn--submit">
+                Enviar solicitud
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+              <p class="form-submit__privacy">Tu información es confidencial y solo se utilizará para preparar el plan de entrenamiento adecuado.</p>
+            </div>
+
+          </form>
+        </div><!-- /form-sections -->
+      </div><!-- /form-body -->
+    </div><!-- /form-container -->
+  </div><!-- /form-page -->
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__logo" aria-label="The Pets Father — Inicio">
+        <img src="Assets/Logo The Pets Father.png" alt="The Pets Father" width="140" height="42" loading="lazy">
+      </a>
+      <p class="footer__copy">© 2025. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/thepetsfather" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/thepetsfather/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ── Conditional Fields ──
+    function toggleConditional(trigger, targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      if (trigger.checked) {
+        target.classList.add('visible');
+      } else {
+        target.classList.remove('visible');
+      }
+    }
+
+    // Entrenamiento previo
+    document.getElementById('entrenamiento-si').addEventListener('change', function () {
+      document.getElementById('tipo-entrenamiento-field').classList.add('visible');
+    });
+    document.getElementById('entrenamiento-no').addEventListener('change', function () {
+      document.getElementById('tipo-entrenamiento-field').classList.remove('visible');
+    });
+
+    // Temperamento "Otro"
+    document.querySelectorAll('input[name="temperamento"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        const otroField = document.getElementById('temperamento-otro-field');
+        if (this.value === 'otro') {
+          otroField.classList.add('visible');
+        } else {
+          otroField.classList.remove('visible');
+        }
+      });
+    });
+
+    // Objetivo "Otros"
+    document.getElementById('objetivo-otro-check').addEventListener('change', function () {
+      toggleConditional(this, 'objetivo-otro-field');
+    });
+
+    // ── Form Submission ──
+    document.getElementById('admission-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic required field validation
+      const requiredFields = this.querySelectorAll('[required]');
+      let valid = true;
+
+      requiredFields.forEach(function (field) {
+        if (field.type === 'radio') return; // handled per group below
+        if (!field.value.trim()) {
+          field.style.borderColor = '#d0021b';
+          field.focus();
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      // Validate required radio groups
+      const radioGroups = ['sexo', 'esterilizado', 'adquisicion', 'entrenamiento_previo', 'vacunas', 'temperamento', 'dieta'];
+      radioGroups.forEach(function (name) {
+        const checked = document.querySelector('input[name="' + name + '"]:checked');
+        if (!checked) {
+          const group = document.querySelector('input[name="' + name + '"]').closest('.field-group');
+          if (group) group.style.outline = '2px solid #d0021b';
+          valid = false;
+        } else {
+          const group = document.querySelector('input[name="' + name + '"]').closest('.field-group');
+          if (group) group.style.outline = '';
+        }
+      });
+
+      if (!valid) {
+        const firstError = document.querySelector('[style*="border-color: rgb(208, 2, 27)"], [style*="outline: 2px solid"]');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Gather form data safely (including all checkboxes)
+      const data = new FormData(this);
+      const payload = {};
+      for (const [key, value] of data.entries()) {
+        if (payload[key]) {
+          if (!Array.isArray(payload[key])) payload[key] = [payload[key]];
+          payload[key].push(value);
+        } else {
+          payload[key] = value;
+        }
+      }
+
+      // Automatically attach the current language!
+      payload['idioma'] = localStorage.getItem('tpf-lang') || 'es';
+
+      // Show sending state
+      const btn = this.querySelector('.btn--submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "Enviando...";
+      btn.disabled = true;
+
+      // Send to Make.com Webhook
+      fetch('https://hook.us2.make.com/e3aglgivo25qoh8tdfh68j42devaqc8p', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        // Show success screen
+        document.getElementById('form-body').classList.add('submitted');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Hubo un error al intentar enviar el formulario. Por favor, intenta enviarlo de nuevo.");
+      })
+      .finally(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    });
+
+    // Clear error styling on input
+    document.querySelectorAll('input, textarea, select').forEach(function (el) {
+      el.addEventListener('input', function () {
+        this.style.borderColor = '';
+        const group = this.closest('.field-group');
+        if (group) group.style.outline = '';
+      });
+    });
+  </script>
+</body>
+</html>

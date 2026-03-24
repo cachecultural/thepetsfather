@@ -117,7 +117,7 @@ ul {
 
 .eyebrow {
   font-family: var(--font-body);
-  font-size: 0.45rem;
+  font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -845,8 +845,8 @@ a:focus-visible {
 
 .method__grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
 }
 
 .method__card {
@@ -855,7 +855,12 @@ a:focus-visible {
   overflow: hidden;
   aspect-ratio: 3/4;
   cursor: pointer;
-  group: true;
+}
+
+/* Last (5th) card spans full width on mobile 2-col */
+.method__grid > .method__card:last-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/9;
 }
 
 .method__card-img {
@@ -897,6 +902,10 @@ a:focus-visible {
   line-height: 1.2;
   transform: translateY(0);
   transition: transform var(--transition-smooth);
+}
+
+.method__card:hover .method__card-title {
+  transform: translateY(-4px);
 }
 
 .method__card-number {
@@ -1298,6 +1307,11 @@ a:focus-visible {
   -webkit-overflow-scrolling: touch;
   padding: var(--space-sm) clamp(1.25rem, 4vw, 3rem);
   scrollbar-width: none;
+  cursor: grab;
+}
+
+.social__carousel:active {
+  cursor: grabbing;
 }
 
 .social__carousel::-webkit-scrollbar {
@@ -1396,11 +1410,22 @@ a:focus-visible {
 }
 
 .testimonials__grid {
-  display: grid;
+  display: flex;
   gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--space-sm);
+}
+
+.testimonials__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonial-card {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
@@ -1534,8 +1559,18 @@ a:focus-visible {
 
 /* Footer bottom */
 .footer {
-  background: var(--color-dark-deep);
+  background: var(--color-white);
+  background-image: url('../Assets/paws BG mobile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: var(--space-lg) 0;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    background-image: url('../Assets/paws BG desktop.jpg');
+  }
 }
 
 .footer__inner {
@@ -1549,7 +1584,7 @@ a:focus-visible {
 .footer__logo img {
   height: 56px;
   width: auto;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .footer__social {
@@ -1561,11 +1596,11 @@ a:focus-visible {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(33, 33, 33, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(33, 33, 33, 0.5);
   transition: all var(--transition-fast);
 }
 
@@ -1581,7 +1616,7 @@ a:focus-visible {
 
 .footer__copy {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(33, 33, 33, 0.45);
   letter-spacing: 0.04em;
 }
 
@@ -1611,10 +1646,15 @@ a:focus-visible {
 
   .method__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 
   .method__card:last-child {
     grid-column: 1 / -1;
+  }
+
+  .method__grid > .method__card:last-child {
+    aspect-ratio: 16/9;
   }
 
   .services__grid {
@@ -1638,7 +1678,13 @@ a:focus-visible {
   }
 
   .testimonials__grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    overflow: visible;
+  }
+
+  .testimonials__grid .testimonial-card {
+    flex: none;
   }
 
   .footer__inner {
@@ -1718,6 +1764,10 @@ a:focus-visible {
     grid-column: span 3;
   }
 
+  .method__grid > .method__card:last-child {
+    aspect-ratio: 3/4;
+  }
+
   .services__grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1731,7 +1781,9 @@ a:focus-visible {
   }
 
   .testimonials__grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
   }
 }
 

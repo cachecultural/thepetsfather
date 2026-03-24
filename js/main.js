@@ -97,6 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* — Drag-to-scroll for social carousel — */
+  const carousel = document.querySelector('.social__carousel');
+  if (carousel) {
+    let isDown = false, startX, scrollLeft;
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+    carousel.addEventListener('mouseleave', () => { isDown = false; });
+    carousel.addEventListener('mouseup', () => { isDown = false; });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
+
   /* — Lazy loading for videos — */
   const lazyVideos = document.querySelectorAll('.social__reel video');
 
@@ -117,5 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   lazyVideos.forEach(v => videoObserver.observe(v));
+
+  /* — Lazy-load final CTA background video — */
+  const ctaVideo = document.querySelector('.final-cta__bg video');
+  if (ctaVideo && ctaVideo.preload === 'none') {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          ctaVideo.preload = 'auto';
+          ctaVideo.load();
+          ctaObserver.unobserve(ctaVideo);
+        }
+      });
+    }, { rootMargin: '400px' });
+    ctaObserver.observe(ctaVideo);
+  }
 
 });
