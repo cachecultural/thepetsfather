@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/junio/.claude/**)"
+      "Read(//c/Users/junio/.claude/**)",
+      "WebFetch(domain:www.thepetsfather.com)"
     ]
   }
 }
