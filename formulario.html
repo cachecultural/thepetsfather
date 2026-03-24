@@ -1032,5 +1032,128 @@
       });
     });
   </script>
+  <script>
+    (function() {
+      const formTranslations = {
+        'Volver al inicio': 'Back to home',
+        'FORMULARIO DE ADMISIÓN': 'ADMISSION FORM',
+        'Cuéntanos sobre tu perro': 'Tell us about your dog',
+        'Queremos conocer a tu perro para ofrecerle el plan más adecuado y ayudarlo a mejorar su comportamiento de forma segura y efectiva.': 'We want to get to know your dog to offer the most suitable plan and help improve their behavior safely and effectively.',
+        '¡Recibimos tu solicitud!': 'We received your request!',
+        'Revisaremos la información y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.': 'We will review the information and contact you shortly to design the best plan for your dog.',
+        'Sobre ti': 'About you',
+        'Nombre completo': 'Full name',
+        'Teléfono de contacto': 'Contact phone',
+        'Correo electrónico': 'Email address',
+        'Sobre tu perro': 'About your dog',
+        'Nombre del perro': 'Dog\'s name',
+        'Raza y edad': 'Breed and age',
+        'Sexo': 'Sex',
+        'Macho': 'Male',
+        'Hembra': 'Female',
+        '¿Está esterilizado o castrado?': 'Is your dog spayed or neutered?',
+        'Sí': 'Yes',
+        'No': 'No',
+        '¿Cómo adquiriste a tu perro?': 'How did you acquire your dog?',
+        'Comprado en tienda': 'Bought in a store',
+        'Adoptado en refugio': 'Adopted from a shelter',
+        'Rescatado': 'Rescued',
+        'Regalado': 'Gifted',
+        '¿Cuánto tiempo hace que lo tienes?': 'How long have you had them?',
+        'Experiencia previa': 'Previous experience',
+        '¿Ha recibido tu perro algún tipo de entrenamiento anteriormente?': 'Has your dog received any type of training before?',
+        '¿Qué tipo de entrenamiento?': 'What type of training?',
+        '¿Cómo fue el proceso de entrenamiento anterior?': 'How was the previous training process?',
+        'Salud y vacunas': 'Health and vaccinations',
+        '¿Tu perro tiene alguna enfermedad, alergia o condición especial?': 'Does your dog have any illness, allergy or special condition?',
+        '¿Está al día con vacunas y desparasitaciones?': 'Are they up to date with vaccinations and deworming?',
+        'Las vacunas al día son obligatorias para todos los programas.': 'Up-to-date vaccinations are mandatory for all programs.',
+        'Fecha de la última vacunación o desparasitación': 'Date of last vaccination or deworming',
+        '¿Tu perro está embarazada, ha parido recientemente o planea criar?': 'Is your dog pregnant, has recently given birth or do you plan to breed?',
+        'Comportamiento y temperamento': 'Behavior and temperament',
+        'Describe brevemente cómo se comporta en casa': 'Briefly describe how they behave at home',
+        '¿Ha mostrado algún comportamiento problemático?': 'Have they shown any problematic behavior?',
+        '¿Ha herido gravemente a otro animal alguna vez?': 'Have they ever seriously injured another animal?',
+        'Temperamento general': 'General temperament',
+        'Tranquilo': 'Calm',
+        'Ansioso': 'Anxious',
+        'Reactivo': 'Reactive',
+        'Sociable': 'Sociable',
+        'Otro': 'Other',
+        'Especifica:': 'Specify:',
+        'Entorno y rutina': 'Environment and routine',
+        '¿Convive con otros animales o niños?': 'Do they live with other animals or children?',
+        'Describe brevemente su rutina diaria': 'Briefly describe their daily routine',
+        'Alimentación': 'Feeding',
+        'Tipo de dieta': 'Type of diet',
+        'Comida comercial seca': 'Dry commercial food',
+        'Comida húmeda': 'Wet commercial food',
+        'BARF': 'BARF / Raw diet',
+        'Dieta mixta': 'Mixed diet',
+        'Cantidad y frecuencia de alimentación': 'Amount and feeding frequency',
+        'Marcas o alimentos específicos que consume': 'Specific brands or foods they consume',
+        'Objetivo del entrenamiento': 'Training goal',
+        '¿Qué te gustaría lograr con el entrenamiento?': 'What would you like to achieve with the training?',
+        'Mejor control en paseos': 'Better control on walks',
+        'Conducta más calmada en casa': 'Calmer behavior at home',
+        'Reducir ansiedad o estrés': 'Reduce anxiety or stress',
+        'Mejor socialización con otros perros': 'Better socialization with other dogs',
+        'Mejora general de hábitos y obediencia': 'General improvement of habits and obedience',
+        'Otros': 'Others',
+        'Especifica tu objetivo:': 'Specify your goal:',
+        '¡Ya casi terminamos!': 'We\'re almost done!',
+        'Tu información es confidencial y solo se utilizará para preparar el plan de entrenamiento adecuado.': 'Your information is confidential and will only be used to prepare the appropriate training plan.',
+        'Enviar solicitud': 'Submit application',
+        '(opcional)': '(optional)'
+      };
+
+      const customPlaceholders = {
+        'Tu nombre completo': 'Your full name',
+        'tu@correo.com': 'you@email.com',
+        'Ej.: Max': 'E.g.: Max',
+        'Ej.: Labrador, 2 años': 'E.g.: Labrador, 2 years',
+        'Ej.: 6 meses, 2 años': 'E.g.: 6 months, 2 years',
+        'Ej.: obediencia básica, clicker, etc.': 'E.g.: basic obedience, clicker, etc.',
+        'Progreso, desafíos, resultados...': 'Progress, challenges, results...',
+        'Describe cualquier condición de salud relevante...': 'Describe any relevant health condition...',
+        'Sí / No / Detalles...': 'Yes / No / Details...',
+        'Ej.: tranquilo con la familia, activo en exteriores...': 'E.g.: calm with family, active outdoors...',
+        'Ej.: reactividad, ansiedad, ladridos excesivos, tirones, agresión...': 'E.g.: reactivity, anxiety, excessive barking, pulling, aggression...',
+        'Sí / No / Describa si es necesario': 'Yes / No / Describe if necessary',
+        'Describe el temperamento...': 'Describe the temperament...',
+        'Sí / No / Indique cuáles': 'Yes / No / Indicate which ones',
+        'Ej.: paseos, juegos, tiempo que pasa solo en casa...': 'E.g.: walks, playtime, time spent alone at home...',
+        'Ej.: 2 tazas, 2 veces al día': 'E.g.: 2 cups, twice a day',
+        'Ej.: Royal Canin, pollo cocido...': 'E.g.: Royal Canin, cooked chicken...',
+        'Describe tu objetivo...': 'Describe your goal...'
+      };
+      
+      const savedLang = localStorage.getItem('tpf-lang');
+      if (savedLang === 'en') {
+        document.title = 'Admission Form — The Pets Father';
+        
+        const walkDom = function(node) {
+          if (node.nodeType === 3) {
+            let trimmed = node.nodeValue.trim();
+            if (formTranslations[trimmed]) {
+              node.nodeValue = node.nodeValue.replace(trimmed, formTranslations[trimmed]);
+            } else if (trimmed.includes('(puedes elegir varios)')) {
+               node.nodeValue = node.nodeValue.replace('(puedes elegir varios)', '(you can choose several)');
+            }
+          } else if (node.nodeType === 1 && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+            for (let i = 0; i < node.childNodes.length; i++) {
+              walkDom(node.childNodes[i]);
+            }
+          }
+        };
+        walkDom(document.body);
+        
+        document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(input => {
+          const pt = input.getAttribute('placeholder').trim();
+          if (customPlaceholders[pt]) input.setAttribute('placeholder', customPlaceholders[pt]);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
