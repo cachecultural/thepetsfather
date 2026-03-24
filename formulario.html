@@ -458,6 +458,12 @@
     }
 
     /* ── Back link ── */
+    .back-link-row {
+      display: block;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -466,7 +472,6 @@
       font-weight: 600;
       color: rgba(255,255,255,0.55);
       text-decoration: none;
-      margin-bottom: 1.5rem;
       transition: color var(--transition-fast);
     }
 
@@ -514,10 +519,12 @@
   <div class="form-page">
     <div class="form-hero">
       <div class="container">
-        <a href="index.html" class="back-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver al inicio
-        </a>
+        <div class="back-link-row">
+          <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Volver al inicio
+          </a>
+        </div>
         <p class="form-hero__eyebrow">FORMULARIO DE ADMISIÓN</p>
         <h1 class="form-hero__title">Cuéntanos sobre tu perro</h1>
         <p class="form-hero__desc">Queremos conocer a tu perro para ofrecerle el plan más adecuado y ayudarlo a mejorar su comportamiento de forma segura y efectiva.</p>
