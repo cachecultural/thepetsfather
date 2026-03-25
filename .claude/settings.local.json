@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/junio/.claude/**)",
-      "WebFetch(domain:www.thepetsfather.com)"
+      "WebFetch(domain:www.thepetsfather.com)",
+      "Bash(stripe --version)"
     ]
   }
 }
