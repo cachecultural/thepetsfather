@@ -1,117 +1,363 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>¡Gracias! — The Pets Father</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — The Pets Father</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="Assets/favicon.webp" type="image/webp">
   <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="Assets/logotype mobile.png" type="image/x-icon">
   <style>
-    .thanks-section {
-      padding: 120px 20px 80px;
-      min-height: 80vh;
+    .ty-page {
+      min-height: 100vh;
+      background: var(--color-bg);
+      padding-top: 5rem;
+    }
+
+    /* Hero confirmation */
+    .ty-hero {
+      background: var(--color-dark-deep);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      text-align: center;
+    }
+
+    .ty-hero__icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(39, 154, 47, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      background: #f4f6f5;
+      margin: 0 auto 1.5rem;
     }
-    .thanks-card {
-      background: #fff;
-      padding: 60px 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      max-width: 600px;
-      width: 100%;
+
+    .ty-hero__icon svg {
+      width: 40px;
+      height: 40px;
+      color: var(--color-green);
     }
-    .thanks-icon {
-      margin-bottom: 24px;
-      color: #7DBB6A; /* Accent green from main styles */
-    }
-    .thanks-title {
-      font-family: inherit; /* falls back to body CSS, but we enforce weight */
+
+    .ty-hero__title {
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
       font-weight: 900;
-      font-size: 2rem;
-      color: #1a1a1a;
-      margin-bottom: 16px;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
-    /* Enforce Poppins Black if valid */
-    h1.thanks-title {
-       font-family: var(--font-black, 'Montserrat', sans-serif) !important;
+
+    .ty-hero__desc {
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.65;
     }
-    .thanks-desc {
-      font-family: inherit;
-      font-weight: 500;
-      color: rgba(33,33,33,0.7);
-      margin-bottom: 32px;
+
+    /* Schedule section */
+    .ty-schedule {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 5vw, 4rem) var(--space-md);
+    }
+
+    .ty-schedule__header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .ty-schedule__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-green);
+      background: rgba(39, 154, 47, 0.08);
+      border-radius: 999px;
+      padding: 0.3rem 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .ty-schedule__badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .ty-schedule__title {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .ty-schedule__desc {
+      font-size: 0.925rem;
+      color: var(--color-text-light);
       line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
     }
-    .btn--home {
-      display: inline-block;
-      background: #313131; /* using secondary theme color */
-      color: #ffffff;
-      padding: 16px 32px;
-      border-radius: 30px;
-      text-decoration: none;
+
+    /* Calendly embed container */
+    .ty-calendly {
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(33, 33, 33, 0.08);
+      box-shadow: var(--shadow-subtle);
+      overflow: visible;
+      margin-bottom: 2rem;
+    }
+
+    .ty-calendly iframe {
+      width: 100%;
+      height: 1100px;
+      border: none;
+      border-radius: var(--radius-xl);
+    }
+
+    @media (max-width: 560px) {
+      .ty-calendly iframe {
+        height: 920px;
+      }
+    }
+
+    /* Fallback / back link */
+    .ty-back {
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .ty-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      transition: box-shadow 0.3s ease, background 0.3s ease;
+      color: var(--color-text-light);
+      text-decoration: none;
+      transition: color 200ms ease;
     }
-    .btn--home:hover {
-      background: #000;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+
+    .ty-back a:hover {
+      color: var(--color-green);
+    }
+
+    .ty-back svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Lang toggle */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 2px;
+      backdrop-filter: blur(8px);
+      flex-shrink: 0;
+    }
+
+    .lang-toggle__btn {
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .lang-toggle__btn--active {
+      background: white;
+      color: #212121;
     }
   </style>
 </head>
+
 <body>
-  <!-- Header Minimal -->
-  <header class="header">
-    <div class="container header__inner" style="justify-content: center; padding: 20px 0;">
-      <a href="index.html" class="header__logo" aria-label="The Pets Father — Inicio">
-        <img src="Assets/logo black font.webp" alt="The Pets Father" width="160" height="auto">
+
+  <!-- ── Header ── -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="The Pets Father — Home">
+        <img src="Assets/logo white font.webp" alt="The Pets Father" width="160" height="48">
       </a>
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link" id="nav-home">Home</a></li>
+          <li><a href="services.html" class="header__nav-link" id="nav-services">Services</a></li>
+          <li><a href="index.html#contacto" class="header__nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Select language">
+        <button class="lang-toggle__btn lang-toggle__btn--active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-toggle__btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27d+like+to+get+started+with+The+Pets+Father&type=phone_number&app_absent=0"
+        class="btn btn--primary header__cta" target="_blank" rel="noopener noreferrer" id="header-cta">WhatsApp</a>
+      <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile menu">
+      <a href="index.html" class="mobile-nav__link" id="mobile-nav-home">Home</a>
+      <a href="services.html" class="mobile-nav__link" id="mobile-nav-services">Services</a>
+      <a href="index.html#contacto" class="mobile-nav__link" id="mobile-nav-contact">Contact</a>
+      <div class="lang-toggle" role="group" aria-label="Select language" style="margin-top:0.5rem;">
+        <button class="lang-toggle__btn lang-toggle__btn--active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-toggle__btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+    </nav>
   </header>
 
-  <main class="thanks-section">
-    <div class="thanks-card">
-      <svg class="thanks-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-      </svg>
-      <h1 class="thanks-title">¡Gracias por enviar tu información!</h1>
-      <p class="thanks-desc">Revisaremos tu solicitud y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.</p>
-      <a href="index.html" class="btn--home">Volver al inicio</a>
+  <div class="ty-page">
+    <!-- ── Confirmation Hero ── -->
+    <div class="ty-hero">
+      <div class="container">
+        <div class="ty-hero__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <h1 class="ty-hero__title" id="ty-title">Thank You for Submitting Your Information!</h1>
+        <p class="ty-hero__desc" id="ty-desc">We've received your details and will review everything carefully. Our team
+          will reach out to you shortly to finalize the best plan for your dog.</p>
+      </div>
     </div>
-  </main>
 
+    <!-- ── Schedule Section ── -->
+    <div class="ty-schedule">
+      <div class="ty-schedule__header">
+        <div class="ty-schedule__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span id="ty-badge">NEXT STEP</span>
+        </div>
+        <h2 class="ty-schedule__title" id="ty-sched-title">Schedule Your Initial Evaluation</h2>
+        <p class="ty-schedule__desc" id="ty-sched-desc">Pick a date and time that works for you. This is the interview
+          and first class you just paid for.</p>
+      </div>
+
+      <!-- Calendly Inline Widget -->
+      <div class="ty-calendly" id="calendly-container">
+        <!-- REPLACE_CALENDLY_URL with your actual Calendly link -->
+        <iframe
+          src="https://calendly.com/thepetsfather22/initial-consultation?hide_gdpr_banner=1&background_color=fafafa&primary_color=279a2f"
+          title="Schedule your evaluation"></iframe>
+      </div>
+
+      <div class="ty-back">
+        <a href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span id="ty-back-link">Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" style="background:#FAFAFA url('Assets/paws BG mobile.jpg') center/cover no-repeat;">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__logo" aria-label="The Pets Father — Home">
+        <img src="Assets/logo black font.webp" alt="The Pets Father" width="140" height="42" loading="lazy">
+      </a>
+      <p class="footer__copy" style="color:rgba(33,33,33,0.5);" id="footer-copy">&copy; 2026. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/thepetsfather" class="footer__social-link"
+          style="border:1px solid rgba(33,33,33,0.2);color:rgba(33,33,33,0.55);" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/thepetsfather/" class="footer__social-link"
+          style="border:1px solid rgba(33,33,33,0.2);color:rgba(33,33,33,0.55);" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
   <script>
-    (function() {
-      const translations = {
-        '¡Gracias por enviar tu información!': 'Thank you for submitting your information!',
-        'Revisaremos tu solicitud y nos pondremos en contacto contigo a la brevedad para diseñar el mejor plan para tu perro.': 'We will review your application and contact you shortly to design the best plan for your dog.',
-        'Volver al inicio': 'Back to home'
+    (function () {
+      var TRANSLATIONS = {
+        'nav-home': { en: { text: 'Home' }, es: { text: 'Inicio' } },
+        'nav-services': { en: { text: 'Services' }, es: { text: 'Servicios' } },
+        'nav-contact': { en: { text: 'Contact' }, es: { text: 'Contacto' } },
+        'mobile-nav-home': { en: { text: 'Home' }, es: { text: 'Inicio' } },
+        'mobile-nav-services': { en: { text: 'Services' }, es: { text: 'Servicios' } },
+        'mobile-nav-contact': { en: { text: 'Contact' }, es: { text: 'Contacto' } },
+        'header-cta': { en: { text: 'WhatsApp' }, es: { text: 'WhatsApp' } },
+        // Thank-you content
+        'ty-title': { en: { text: 'Thank You for Submitting Your Information!' }, es: { text: '\u00a1Gracias por Enviar tu Informaci\u00f3n!' } },
+        'ty-desc': { en: { text: "We\u2019ve received your details and will review everything carefully. Our team will reach out to you shortly to finalize the best plan for your dog." }, es: { text: 'Hemos recibido tu informaci\u00f3n y la revisaremos con cuidado. Nuestro equipo se pondr\u00e1 en contacto contigo pronto para dise\u00f1ar el mejor plan para tu perro.' } },
+        'ty-badge': { en: { text: 'NEXT STEP' }, es: { text: 'SIGUIENTE PASO' } },
+        'ty-sched-title': { en: { text: 'Schedule Your Initial Evaluation' }, es: { text: 'Agenda tu Evaluaci\u00f3n Inicial' } },
+        'ty-sched-desc': { en: { text: 'Pick a date and time that works for you. This is the interview and first class you just paid for.' }, es: { text: 'Elige una fecha y hora que te funcione. Esta es la entrevista y primera clase que acabas de pagar.' } },
+        'ty-back-link': { en: { text: 'Back to Home' }, es: { text: 'Volver al Inicio' } },
+        'footer-copy': { en: { text: '\u00a9 2026. All rights reserved.' }, es: { text: '\u00a9 2026. Todos los derechos reservados.' } }
       };
-      
-      const savedLang = localStorage.getItem('tpf-lang');
-      if (savedLang === 'en') {
-        document.title = 'Thank you! — The Pets Father';
-        
-        const walkDom = function(node) {
-          if (node.nodeType === 3) {
-            let trimmed = node.nodeValue.trim();
-            if (translations[trimmed]) {
-              node.nodeValue = node.nodeValue.replace(trimmed, translations[trimmed]);
-            }
-          } else if (node.nodeType === 1 && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
-            for (let i = 0; i < node.childNodes.length; i++) {
-              walkDom(node.childNodes[i]);
-            }
+
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+        document.title = lang === 'es' ? '\u00a1Gracias! \u2014 The Pets Father' : 'Thank You \u2014 The Pets Father';
+        Object.keys(TRANSLATIONS).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          var t = TRANSLATIONS[id][lang];
+          if (!t) return;
+          if (t.href !== undefined) { el.href = t.href; }
+          if (t.html !== undefined) {
+            el.innerHTML = t.html;
+          } else if (t.text !== undefined) {
+            el.textContent = t.text;
           }
-        };
-        walkDom(document.body);
+        });
+        document.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+          var active = btn.dataset.lang === lang;
+          btn.classList.toggle('lang-toggle__btn--active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        try { localStorage.setItem('tpf-lang', lang); } catch (e) { }
       }
+
+      var saved = 'en';
+      try { saved = localStorage.getItem('tpf-lang') || 'en'; } catch (e) { }
+      applyLang(saved);
+
+      document.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { applyLang(this.dataset.lang); });
+      });
     })();
   </script>
 </body>
+
 </html>
