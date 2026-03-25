@@ -8,7 +8,7 @@
   <meta name="description"
     content="Full services and pricing for The Pets Father: Board & Training, Daycare, Purposeful Boarding, In-Facility Training, Home Training, and Professional Grooming.">
   <link rel="icon" href="Assets/favicon.webp" type="image/webp">
-  <link rel="stylesheet" href="css/styles.css?v=20260325185616">
+  <link rel="stylesheet" href="css/styles.css?v=20260325191241">
   <style>
     /* ── Services Page ── */
     .svc-page {
@@ -389,13 +389,16 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-green);
-      background: rgba(39,154,47,0.12);
+      background: rgba(39, 154, 47, 0.12);
       border-radius: 999px;
       padding: 0.3rem 0.85rem;
       margin-bottom: 1rem;
     }
 
-    .svc-eval__badge svg { width: 14px; height: 14px; }
+    .svc-eval__badge svg {
+      width: 14px;
+      height: 14px;
+    }
 
     .svc-eval__title {
       font-size: clamp(1.3rem, 3vw, 1.6rem);
@@ -407,7 +410,7 @@
 
     .svc-eval__desc {
       font-size: 0.925rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       line-height: 1.7;
       margin-bottom: 2rem;
       max-width: 640px;
@@ -427,8 +430,8 @@
     }
 
     .svc-eval__card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
       text-align: center;
@@ -444,7 +447,7 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
       margin-bottom: 0.5rem;
     }
 
@@ -473,7 +476,7 @@
       align-items: flex-start;
       gap: 0.5rem;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255, 255, 255, 0.4);
       line-height: 1.5;
     }
 
@@ -482,7 +485,7 @@
       height: 14px;
       flex-shrink: 0;
       margin-top: 2px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255, 255, 255, 0.3);
     }
   </style>
 </head>
@@ -553,11 +556,18 @@
       <!-- 0. Evaluación Inicial — Required first step -->
       <div class="svc-eval" id="evaluacion">
         <div class="svc-eval__badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
           <span id="eval-badge">REQUIRED FIRST STEP</span>
         </div>
         <h2 class="svc-eval__title" id="eval-title">Initial Evaluation</h2>
-        <p class="svc-eval__desc" id="eval-desc">First session where we analyze your dog's behavior and dynamics with you as the handler. We observe behaviors, identify root causes, and begin hands-on work with foundational exercises and handling adjustments. This session establishes the basis and focus for the entire training process.</p>
+        <p class="svc-eval__desc" id="eval-desc">First session where we analyze your dog's behavior and dynamics with
+          you as the handler. We observe behaviors, identify root causes, and begin hands-on work with foundational
+          exercises and handling adjustments. This session establishes the basis and focus for the entire training
+          process.</p>
 
         <div class="svc-eval__options">
           <!-- Option A: At our facility -->
@@ -565,20 +575,28 @@
             <p class="svc-eval__card-label" id="eval-a-label">AT OUR FACILITY</p>
             <p class="svc-eval__card-title" id="eval-a-title">You come to us</p>
             <p class="svc-eval__card-price">$100</p>
-            <a href="https://buy.stripe.com/test_8x27sLetVfnidDZcNtdby00" class="btn btn--primary" id="eval-a-btn" target="_blank" rel="noopener noreferrer">Book &amp; Pay</a>
+            <a href="https://buy.stripe.com/test_8x27sLetVfnidDZcNtdby00" class="btn btn--primary" id="eval-a-btn"
+              target="_blank" rel="noopener noreferrer">Book &amp; Pay</a>
           </div>
           <!-- Option B: At your home -->
           <div class="svc-eval__card">
             <p class="svc-eval__card-label" id="eval-b-label">AT YOUR HOME</p>
             <p class="svc-eval__card-title" id="eval-b-title">We come to you</p>
             <p class="svc-eval__card-price">$130</p>
-            <a href="https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02" class="btn btn--primary" id="eval-b-btn" target="_blank" rel="noopener noreferrer">Book &amp; Pay</a>
+            <a href="https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02" class="btn btn--primary" id="eval-b-btn"
+              target="_blank" rel="noopener noreferrer">Book &amp; Pay</a>
           </div>
         </div>
 
         <div class="svc-eval__note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span id="eval-note">This evaluation is required before starting any training program. Payment secures your spot.</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span id="eval-note">This evaluation is required before starting any training program. Payment secures your
+            spot.</span>
         </div>
       </div>
 
@@ -958,7 +976,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260325185616"></script>
+  <script src="js/main.js?v=20260325191241"></script>
   <script>
     (function () {
       var TRANSLATIONS = {
@@ -976,16 +994,16 @@
         'hero-title': { en: { text: 'Everything We Offer' }, es: { text: 'Todo lo que Ofrecemos' } },
         'hero-desc': { en: { text: "From intensive training programs to daily sport care \u2014 find the right plan for your dog." }, es: { text: 'Desde programas intensivos de entrenamiento hasta cuidado deportivo diario \u2014 encuentra el plan ideal para tu perro.' } },
         // Evaluación Inicial
-        'eval-badge':   { en: { text: 'REQUIRED FIRST STEP' }, es: { text: 'PRIMER PASO OBLIGATORIO' } },
-        'eval-title':   { en: { text: 'Initial Evaluation' }, es: { text: 'Evaluaci\u00f3n Inicial' } },
-        'eval-desc':    { en: { text: "First session where we analyze your dog\u2019s behavior and dynamics with you as the handler. We observe behaviors, identify root causes, and begin hands-on work with foundational exercises and handling adjustments. This session establishes the basis and focus for the entire training process." }, es: { text: 'Primera sesi\u00f3n en la que se analiza el comportamiento del perro y la din\u00e1mica con el tutor. Se observan conductas, se identifican causas y se inicia el trabajo pr\u00e1ctico con ejercicios b\u00e1sicos y ajustes en el manejo. A partir de esta sesi\u00f3n se definen las bases y el enfoque del proceso de entrenamiento.' } },
+        'eval-badge': { en: { text: 'REQUIRED FIRST STEP' }, es: { text: 'PRIMER PASO OBLIGATORIO' } },
+        'eval-title': { en: { text: 'Initial Evaluation' }, es: { text: 'Evaluaci\u00f3n Inicial' } },
+        'eval-desc': { en: { text: "First session where we analyze your dog\u2019s behavior and dynamics with you as the handler. We observe behaviors, identify root causes, and begin hands-on work with foundational exercises and handling adjustments. This session establishes the basis and focus for the entire training process." }, es: { text: 'Primera sesi\u00f3n en la que se analiza el comportamiento del perro y la din\u00e1mica con el tutor. Se observan conductas, se identifican causas y se inicia el trabajo pr\u00e1ctico con ejercicios b\u00e1sicos y ajustes en el manejo. A partir de esta sesi\u00f3n se definen las bases y el enfoque del proceso de entrenamiento.' } },
         'eval-a-label': { en: { text: 'AT OUR FACILITY' }, es: { text: 'EN NUESTRAS INSTALACIONES' } },
         'eval-a-title': { en: { text: 'You come to us' }, es: { text: 'Vienes a nosotros' } },
-        'eval-a-btn':   { en: { text: 'Book \u0026 Pay', href: 'https://buy.stripe.com/cNi7sL9hY2yC6jW3r4aAw01' }, es: { text: 'Reservar \u0026 Pagar', href: 'https://buy.stripe.com/cNi7sL9hY2yC6jW3r4aAw01' } },
+        'eval-a-btn': { en: { text: 'Book \u0026 Pay', href: 'https://buy.stripe.com/test_8x27sLetVfnidDZcNtdby00' }, es: { text: 'Reservar \u0026 Pagar', href: 'https://buy.stripe.com/cNi7sL9hY2yC6jW3r4aAw01' } },
         'eval-b-label': { en: { text: 'AT YOUR HOME' }, es: { text: 'EN TU HOGAR' } },
         'eval-b-title': { en: { text: 'We come to you' }, es: { text: 'Vamos a tu hogar' } },
-        'eval-b-btn':   { en: { text: 'Book \u0026 Pay', href: 'https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02' }, es: { text: 'Reservar \u0026 Pagar', href: 'https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02' } },
-        'eval-note':    { en: { text: 'This evaluation is required before starting any training program. Payment secures your spot.' }, es: { text: 'Esta evaluaci\u00f3n es obligatoria antes de comenzar cualquier programa de entrenamiento. El pago asegura tu cupo.' } },
+        'eval-b-btn': { en: { text: 'Book \u0026 Pay', href: 'https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02' }, es: { text: 'Reservar \u0026 Pagar', href: 'https://buy.stripe.com/bJe4gzdye1uygYA3r4aAw02' } },
+        'eval-note': { en: { text: 'This evaluation is required before starting any training program. Payment secures your spot.' }, es: { text: 'Esta evaluaci\u00f3n es obligatoria antes de comenzar cualquier programa de entrenamiento. El pago asegura tu cupo.' } },
         // Board & Training
         'bt-tag': { en: { text: 'FEATURED PROGRAM' }, es: { text: 'PROGRAMA ESTRELLA' } },
         'bt-title': { en: { text: 'Board \u0026 Training' }, es: { text: 'Board \u0026 Training' } },
