@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Pricing — The Pets Father</title>
+  <meta name="description"
+    content="Full services and pricing for The Pets Father: Board & Training, Daycare, Purposeful Boarding, In-Facility Training, Home Training, and Professional Grooming.">
+  <link rel="icon" href="Assets/favicon.webp" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Services Page ── */
+    .svc-page {
+      min-height: 100vh;
+      background: var(--color-bg);
+      padding-top: 5rem;
+    }
+
+    /* Hero */
+    .svc-hero {
+      background: var(--color-dark-deep);
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+
+    .svc-hero__back-row {
+      display: block;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .svc-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+
+    .svc-hero__back:hover {
+      color: white;
+    }
+
+    .svc-hero__back svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .svc-hero__eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-green);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .svc-hero__title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--color-white);
+      line-height: 1.15;
+      margin: 0 auto 1.25rem;
+      max-width: 640px;
+    }
+
+    .svc-hero__desc {
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Body */
+    .svc-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 5vw, 4rem) var(--space-md);
+    }
+
+    /* Section block */
+    .svc-block {
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(33, 33, 33, 0.08);
+      padding: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-subtle);
+      scroll-margin-top: 6rem;
+    }
+
+    .svc-block__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(33, 33, 33, 0.07);
+    }
+
+    .svc-block__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(39, 154, 47, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-green);
+    }
+
+    .svc-block__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .svc-block__heading {
+      flex: 1;
+    }
+
+    .svc-block__tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-green);
+      background: rgba(39, 154, 47, 0.08);
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .svc-block__title {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .svc-block__subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-top: 0.25rem;
+    }
+
+    .svc-block__desc {
+      font-size: 0.925rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Includes list */
+    .svc-includes {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .svc-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
+    .svc-includes li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(39, 154, 47, 0.12);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23279A2F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 2px;
+    }
+
+    /* Pricing table */
+    .svc-pricing {
+      border: 1px solid rgba(33, 33, 33, 0.1);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .svc-pricing__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(33, 33, 33, 0.07);
+    }
+
+    .svc-pricing__row:last-child {
+      border-bottom: none;
+    }
+
+    .svc-pricing__row--header {
+      background: var(--color-dark-deep);
+      color: white;
+    }
+
+    .svc-pricing__cell {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .svc-pricing__row--header .svc-pricing__cell {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .svc-pricing__cell--price {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--color-green);
+    }
+
+    /* Wide pricing table (4 columns for Board & Training) */
+    .svc-pricing--wide .svc-pricing__row {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 600px) {
+      .svc-pricing--wide .svc-pricing__row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .svc-pricing--wide .svc-pricing__row--header .svc-pricing__cell:not(:first-child) {
+        display: none;
+      }
+
+      .svc-pricing--wide .svc-pricing__cell:not(:first-child):not(:nth-child(2)) {
+        display: none;
+      }
+    }
+
+    /* Note */
+    .svc-note {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      background: rgba(39, 154, 47, 0.05);
+      border: 1px solid rgba(39, 154, 47, 0.15);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      font-size: 0.825rem;
+      color: var(--color-text);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .svc-note svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--color-green);
+      margin-top: 1px;
+    }
+
+    /* Location */
+    .svc-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+    }
+
+    .svc-location svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-green);
+    }
+
+    /* Actions */
+    .svc-block__actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    /* Final CTA strip */
+    .svc-cta {
+      background: var(--color-dark-deep);
+      border-radius: var(--radius-xl);
+      padding: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .svc-cta__title {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 900;
+      color: var(--color-white);
+      margin-bottom: 0.75rem;
+    }
+
+    .svc-cta__desc {
+      font-size: 0.925rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.75rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Lang toggle (reuse from main) */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 2px;
+      backdrop-filter: blur(8px);
+      flex-shrink: 0;
+    }
+
+    .lang-toggle__btn {
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .lang-toggle__btn--active {
+      background: white;
+      color: #212121;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header ── -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="The Pets Father — Home">
+        <img src="Assets/logo white font.webp" alt="The Pets Father" width="160" height="48">
+      </a>
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link" id="nav-home">Home</a></li>
+          <li><a href="services.html" class="header__nav-link" id="nav-services">Services</a></li>
+          <li><a href="index.html#contacto" class="header__nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Select language">
+        <button class="lang-toggle__btn lang-toggle__btn--active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-toggle__btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=584127922004&text=Hola%2C+me+interesa+el+servicio+de+%2ACuidado+Exclusivo%2A&type=phone_number&app_absent=0"
+        class="btn btn--primary header__cta" target="_blank" rel="noopener noreferrer" id="header-cta">
+        WhatsApp
+      </a>
+      <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile menu">
+      <a href="index.html" class="mobile-nav__link" id="mobile-nav-home">Home</a>
+      <a href="services.html" class="mobile-nav__link" id="mobile-nav-services">Services</a>
+      <a href="index.html#contacto" class="mobile-nav__link" id="mobile-nav-contact">Contact</a>
+      <a href="https://api.whatsapp.com/send/?phone=584127922004&text=Hola%2C+me+interesa+el+servicio+de+%2ACuidado+Exclusivo%2A&type=phone_number&app_absent=0"
+        class="btn btn--primary" id="mobile-cta" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+      <div class="lang-toggle" role="group" aria-label="Select language" style="margin-top:0.5rem;">
+        <button class="lang-toggle__btn lang-toggle__btn--active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-toggle__btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="svc-page">
+    <div class="svc-hero">
+      <div class="container">
+        <div class="svc-hero__back-row">
+          <a href="index.html" class="svc-hero__back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            <span id="hero-back">Back to Home</span>
+          </a>
+        </div>
+        <p class="svc-hero__eyebrow" id="hero-eyebrow">SERVICES &amp; PRICING</p>
+        <h1 class="svc-hero__title" id="hero-title">Everything We Offer</h1>
+        <p class="svc-hero__desc" id="hero-desc">From intensive training programs to daily sport care — find the right
+          plan for your dog.</p>
+      </div>
+    </div>
+
+    <!-- ── Services Body ── -->
+    <div class="svc-body">
+
+      <!-- 1. Board & Training -->
+      <div class="svc-block" id="board-training">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="svc-block__heading">
+            <span class="svc-block__tag" id="bt-tag">FEATURED PROGRAM</span>
+            <h2 class="svc-block__title" id="bt-title">Board &amp; Training</h2>
+            <p class="svc-block__subtitle" id="bt-subtitle">Intensive Residential Program</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="bt-desc">Our most complete program: a deep, structured, and personalized learning
+          experience. Your dog stays with us for 2, 4, 6, or 8 weeks to work intensively on behavior, obedience,
+          self-control, and adapting to different environments and stimuli.</p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="bt-includes-label">INCLUDES:</p>
+        <ul class="svc-includes" id="bt-includes">
+          <li id="bt-li-1">Daily personalized training sessions</li>
+          <li id="bt-li-2">Daily reports with photos, videos, and progress updates</li>
+          <li id="bt-li-3">Controlled exposure to environments, stimuli, and balanced dogs</li>
+          <li id="bt-li-4">Full grooming on completion (available from the 4-week plan)</li>
+        </ul>
+
+        <div class="svc-pricing">
+          <div class="svc-pricing__row svc-pricing__row--header">
+            <div class="svc-pricing__cell" id="bt-col-duration">DURATION</div>
+            <div class="svc-pricing__cell" id="bt-col-investment">INVESTMENT</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="bt-row-2w">2 weeks</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$1,500</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="bt-row-4w">4 weeks</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$2,700</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="bt-row-6w">6 weeks</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$3,780</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="bt-row-8w">8 weeks</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$4,760</div>
+          </div>
+        </div>
+
+        <div class="svc-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span id="bt-note">Ideal for building a solid behavior foundation, progressing faster, or resolving specific
+            goals in depth. Monthly reinforcement sessions are recommended to maintain long-term results.</span>
+        </div>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+the+*Board+%26+Training*+program&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="bt-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- 2. In-Facility Training -->
+      <div class="svc-block" id="in-facility">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div class="svc-block__heading">
+            <h2 class="svc-block__title" id="if-title">In-Facility Training</h2>
+            <p class="svc-block__subtitle" id="if-subtitle">At Our Location</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="if-desc">Individual training with your dog, where you are an active part of the
+          process. We work step by step so you learn to guide your dog with clarity, confidence, and consistency.</p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="if-includes-label">INCLUDES:</p>
+        <ul class="svc-includes" id="if-includes">
+          <li id="if-li-1">Personalized classes focused on your specific needs</li>
+          <li id="if-li-2">Weekly homework to practice at home</li>
+          <li id="if-li-3">Online follow-up to adjust the plan</li>
+          <li id="if-li-4">Practice in different environments: inside and outside the center</li>
+        </ul>
+
+        <div class="svc-pricing">
+          <div class="svc-pricing__row svc-pricing__row--header">
+            <div class="svc-pricing__cell" id="if-col-plan">PLAN</div>
+            <div class="svc-pricing__cell" id="if-col-investment">INVESTMENT</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="if-row-1c">1 class</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$100</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="if-row-6c">6 classes</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$588</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="if-row-12c">12 classes</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$1,150</div>
+          </div>
+        </div>
+
+        <div class="svc-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span id="if-location">2500 NE 181st St, North Miami Beach 33160</span>
+        </div>
+
+        <div class="svc-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span id="if-note">We recommend 1 to 2 classes per week for proper progress.</span>
+        </div>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*In-Facility+Training*&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="if-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- 3. Home Training -->
+      <div class="svc-block" id="home-training">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="svc-block__heading">
+            <h2 class="svc-block__title" id="ht-title">Home Training</h2>
+            <p class="svc-block__subtitle" id="ht-subtitle">At Your Home or Surroundings</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="ht-desc">We train your dog in your home or surrounding area, in a real context,
+          to address specific day-to-day issues: behavior at home, walks, visitors, family dynamics, and more.</p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="ht-includes-label">INCLUDES:</p>
+        <ul class="svc-includes" id="ht-includes">
+          <li id="ht-li-1">Individual class at your home or nearby environment</li>
+          <li id="ht-li-2">Practical guidance throughout the session</li>
+          <li id="ht-li-3">Online follow-up to resolve questions and adapt the plan</li>
+        </ul>
+
+        <div class="svc-pricing">
+          <div class="svc-pricing__row svc-pricing__row--header">
+            <div class="svc-pricing__cell" id="ht-col-plan">PLAN</div>
+            <div class="svc-pricing__cell" id="ht-col-investment">INVESTMENT</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="ht-row-1c">1 class</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$130</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="ht-row-4c">4 classes</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$500</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="ht-row-6c">6 classes</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$720</div>
+          </div>
+        </div>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Home+Training*&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="ht-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- 4. Sports Day Care -->
+      <div class="svc-block" id="daycare">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <img src="Assets/sport.png" alt="" width="22" height="22" style="object-fit:contain;">
+          </div>
+          <div class="svc-block__heading">
+            <h2 class="svc-block__title" id="dc-title">Sports Day Care</h2>
+            <p class="svc-block__subtitle" id="dc-subtitle">Doggy School — More than a daycare</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="dc-desc">A transformational experience. Channel your dog's energy through
+          structure, purpose, and play. Available Monday to Wednesday, 12:00–8:00pm. Pick-up &amp; drop-off available.
+        </p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="dc-includes-label">EACH DAY INCLUDES:</p>
+        <ul class="svc-includes" id="dc-includes">
+          <li id="dc-li-1">Leash practice &amp; structured walks</li>
+          <li id="dc-li-2">Agility or sport-based challenges</li>
+          <li id="dc-li-3">Excursions to build focus in real environments</li>
+          <li id="dc-li-4">Guided socialization &amp; rest time in a calm, safe space</li>
+          <li id="dc-li-5">Pool day</li>
+          <li id="dc-li-6">Transportation &amp; hair brushing included</li>
+        </ul>
+
+        <div class="svc-pricing">
+          <div class="svc-pricing__row svc-pricing__row--header">
+            <div class="svc-pricing__cell" id="dc-col-plan">PLAN</div>
+            <div class="svc-pricing__cell" id="dc-col-investment">INVESTMENT</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="dc-row-day">Daily rate</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$50</div>
+          </div>
+        </div>
+
+        <div class="svc-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span id="dc-note">Only a few exclusive spots available.</span>
+        </div>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Sports+Day+Care*&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="dc-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- 5. Purposeful Boarding -->
+      <div class="svc-block" id="boarding">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
+          <div class="svc-block__heading">
+            <h2 class="svc-block__title" id="bd-title">Purposeful Boarding</h2>
+            <p class="svc-block__subtitle" id="bd-subtitle">More than a hotel stay</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="bd-desc">More than a dog hotel: we offer a structured, educational, and safe stay
+          in a calm, carefully designed environment for each dog's well-being. Exclusive and personalized, providing
+          close attention, clear routines, and a far richer experience than traditional boarding.</p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="bd-includes-label">INCLUDES:</p>
+        <ul class="svc-includes" id="bd-includes">
+          <li id="bd-li-1">Daily structured walks and mental enrichment</li>
+          <li id="bd-li-2">Routines that encourage good habits</li>
+          <li id="bd-li-3">Reinforcement of limits and rules already established</li>
+          <li id="bd-li-4">Daily supervision in a calm, balanced environment</li>
+          <li id="bd-li-5">Photos, videos, and constant updates so you're always in the loop</li>
+        </ul>
+
+        <div class="svc-pricing">
+          <div class="svc-pricing__row svc-pricing__row--header">
+            <div class="svc-pricing__cell" id="bd-col-plan">PLAN</div>
+            <div class="svc-pricing__cell" id="bd-col-investment">INVESTMENT</div>
+          </div>
+          <div class="svc-pricing__row">
+            <div class="svc-pricing__cell" id="bd-row-night">Per night</div>
+            <div class="svc-pricing__cell svc-pricing__cell--price">$80</div>
+          </div>
+        </div>
+
+        <div class="svc-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span id="bd-note">Ideal for dogs that have trained with us or for owners looking for a more exclusive and
+            enriching stay.</span>
+        </div>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Purposeful+Boarding*&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="bd-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- 6. Professional Grooming -->
+      <div class="svc-block" id="grooming">
+        <div class="svc-block__header">
+          <div class="svc-block__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+              <circle cx="12" cy="12" r="1" />
+            </svg>
+          </div>
+          <div class="svc-block__heading">
+            <h2 class="svc-block__title" id="gr-title">Professional Grooming</h2>
+            <p class="svc-block__subtitle" id="gr-subtitle">Warm and careful handling</p>
+          </div>
+        </div>
+        <p class="svc-block__desc" id="gr-desc">Calm, professional handling adapted to each dog — ideal for sensitive
+          dogs. Always with care, patience, and attention to detail.</p>
+
+        <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;color:var(--color-text-light);text-transform:uppercase;margin-bottom:0.75rem;"
+          id="gr-includes-label">INCLUDES:</p>
+        <ul class="svc-includes" id="gr-includes">
+          <li id="gr-li-1">Bath</li>
+          <li id="gr-li-2">Hygiene trim</li>
+          <li id="gr-li-3">Nail trim</li>
+          <li id="gr-li-4">Ear cleaning</li>
+          <li id="gr-li-5">Professional cut</li>
+        </ul>
+
+        <div class="svc-block__actions">
+          <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Professional+Grooming*&type=phone_number&app_absent=0"
+            class="btn btn--primary" id="gr-cta" target="_blank" rel="noopener noreferrer">Buy Service</a>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="svc-cta">
+        <h2 class="svc-cta__title" id="cta-title">Ready to Get Started?</h2>
+        <p class="svc-cta__desc" id="cta-desc">Fill out the admission form and we'll design the right plan for your dog.
+        </p>
+        <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27d+like+to+get+started+with+The+Pets+Father&type=phone_number&app_absent=0"
+          class="btn btn--primary" id="cta-btn" target="_blank" rel="noopener noreferrer">Complete Admission Form</a>
+      </div>
+
+    </div><!-- /svc-body -->
+  </div><!-- /svc-page -->
+
+  <!-- ── Footer ── -->
+  <footer class="footer" style="background:#FAFAFA url('Assets/paws BG mobile.jpg') center/cover no-repeat;">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__logo" aria-label="The Pets Father — Home">
+        <img src="Assets/logo black font.webp" alt="The Pets Father" width="140" height="42" loading="lazy">
+      </a>
+      <p class="footer__copy" style="color:rgba(33,33,33,0.5);" id="footer-copy">&copy; 2026. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/thepetsfather" class="footer__social-link"
+          style="border:1px solid rgba(33,33,33,0.2);color:rgba(33,33,33,0.55);" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/thepetsfather/" class="footer__social-link"
+          style="border:1px solid rgba(33,33,33,0.2);color:rgba(33,33,33,0.55);" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var TRANSLATIONS = {
+        'nav-home': { en: { text: 'Home' }, es: { text: 'Inicio' } },
+        'nav-services': { en: { text: 'Services' }, es: { text: 'Servicios' } },
+        'nav-contact': { en: { text: 'Contact' }, es: { text: 'Contacto' } },
+        'mobile-nav-home': { en: { text: 'Home' }, es: { text: 'Inicio' } },
+        'mobile-nav-services': { en: { text: 'Services' }, es: { text: 'Servicios' } },
+        'mobile-nav-contact': { en: { text: 'Contact' }, es: { text: 'Contacto' } },
+        'mobile-cta': { en: { text: 'Book a consultation' }, es: { text: 'Agenda una consulta' } },
+        'header-cta': { en: { text: 'WhatsApp' }, es: { text: 'WhatsApp' } },
+        // Hero
+        'hero-back': { en: { text: 'Back to Home' }, es: { text: 'Volver al inicio' } },
+        'hero-eyebrow': { en: { text: 'SERVICES \u0026 PRICING' }, es: { text: 'SERVICIOS \u0026 PRECIOS' } },
+        'hero-title': { en: { text: 'Everything We Offer' }, es: { text: 'Todo lo que Ofrecemos' } },
+        'hero-desc': { en: { text: "From intensive training programs to daily sport care \u2014 find the right plan for your dog." }, es: { text: 'Desde programas intensivos de entrenamiento hasta cuidado deportivo diario \u2014 encuentra el plan ideal para tu perro.' } },
+        // Board & Training
+        'bt-tag': { en: { text: 'FEATURED PROGRAM' }, es: { text: 'PROGRAMA ESTRELLA' } },
+        'bt-title': { en: { text: 'Board \u0026 Training' }, es: { text: 'Board \u0026 Training' } },
+        'bt-subtitle': { en: { text: 'Intensive Residential Program' }, es: { text: 'Programa Residencial Intensivo' } },
+        'bt-desc': { en: { text: 'Our most complete program: a deep, structured, and personalized learning experience. Your dog stays with us for 2, 4, 6, or 8 weeks to work intensively on behavior, obedience, self-control, and adapting to different environments and stimuli.' }, es: { text: 'Nuestro programa m\u00e1s completo: una experiencia de aprendizaje profunda, estructurada y personalizada. Tu perro se queda con nosotros 2, 4, 6 u 8 semanas para trabajar de forma intensiva en comportamiento, obediencia, autocontrol y adaptaci\u00f3n a distintos entornos y est\u00edmulos.' } },
+        'bt-includes-label': { en: { text: 'INCLUDES:' }, es: { text: 'INCLUYE:' } },
+        'bt-li-1': { en: { text: 'Daily personalized training sessions' }, es: { text: 'Entrenamiento diario personalizado' } },
+        'bt-li-2': { en: { text: 'Daily reports with photos, videos, and progress updates' }, es: { text: 'Reportes diarios con fotos, videos y avances' } },
+        'bt-li-3': { en: { text: 'Controlled exposure to environments, stimuli, and balanced dogs' }, es: { text: 'Exposici\u00f3n controlada a ambientes, est\u00edmulos y perros equilibrados' } },
+        'bt-li-4': { en: { text: 'Full grooming on completion (available from the 4-week plan)' }, es: { text: 'Grooming completo al finalizar (disponible a partir del plan de 4 semanas)' } },
+        'bt-col-duration': { en: { text: 'DURATION' }, es: { text: 'DURACI\u00d3N' } },
+        'bt-col-investment': { en: { text: 'INVESTMENT' }, es: { text: 'INVERSI\u00d3N' } },
+        'bt-row-2w': { en: { text: '2 weeks' }, es: { text: '2 semanas' } },
+        'bt-row-4w': { en: { text: '4 weeks' }, es: { text: '4 semanas' } },
+        'bt-row-6w': { en: { text: '6 weeks' }, es: { text: '6 semanas' } },
+        'bt-row-8w': { en: { text: '8 weeks' }, es: { text: '8 semanas' } },
+        'bt-note': { en: { text: 'Ideal for building a solid behavior foundation, progressing faster, or resolving specific goals in depth. Monthly reinforcement sessions are recommended to maintain long-term results.' }, es: { text: 'Ideal para construir una base s\u00f3lida de comportamiento, avanzar m\u00e1s r\u00e1pido o resolver objetivos espec\u00edficos a fondo. Recomendamos sesiones mensuales de refuerzo para mantener los resultados a largo plazo.' } },
+        'bt-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+the+*Board+%26+Training*+program&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+programa+de+*Board+%26+Training*&type=phone_number&app_absent=0' } },
+        // In-Facility
+        'if-title': { en: { text: 'In-Facility Training' }, es: { text: 'Entrenamiento Presencial' } },
+        'if-subtitle': { en: { text: 'At Our Location' }, es: { text: 'En Nuestras Instalaciones' } },
+        'if-desc': { en: { text: 'Individual training with your dog, where you are an active part of the process. We work step by step so you learn to guide your dog with clarity, confidence, and consistency.' }, es: { text: 'Entrenamiento individual con tu perro, donde t\u00fa eres parte activa del proceso. Trabajamos paso a paso para que aprendas a guiar a tu perro con claridad, seguridad y constancia.' } },
+        'if-includes-label': { en: { text: 'INCLUDES:' }, es: { text: 'INCLUYE:' } },
+        'if-li-1': { en: { text: 'Personalized classes focused on your specific needs' }, es: { text: 'Clases personalizadas enfocadas en tus necesidades' } },
+        'if-li-2': { en: { text: 'Weekly homework to practice at home' }, es: { text: 'Tareas semanales para practicar en casa' } },
+        'if-li-3': { en: { text: 'Online follow-up to adjust the plan' }, es: { text: 'Seguimiento online para ajustar el plan' } },
+        'if-li-4': { en: { text: 'Practice in different environments: inside and outside the center' }, es: { text: 'Pr\u00e1cticas en distintos entornos: dentro y fuera del centro' } },
+        'if-col-plan': { en: { text: 'PLAN' }, es: { text: 'PLAN' } },
+        'if-col-investment': { en: { text: 'INVESTMENT' }, es: { text: 'INVERSI\u00d3N' } },
+        'if-row-1c': { en: { text: '1 class' }, es: { text: '1 clase' } },
+        'if-row-6c': { en: { text: '6 classes' }, es: { text: '6 clases' } },
+        'if-row-12c': { en: { text: '12 classes' }, es: { text: '12 clases' } },
+        'if-location': { en: { text: '2500 NE 181st St, North Miami Beach 33160' }, es: { text: '2500 NE 181st St, North Miami Beach 33160' } },
+        'if-note': { en: { text: 'We recommend 1 to 2 classes per week for proper progress.' }, es: { text: 'Recomendamos de 1 a 2 clases por semana para avanzar correctamente.' } },
+        'if-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*In-Facility+Training*&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Entrenamiento+Presencial*&type=phone_number&app_absent=0' } },
+        // Home Training
+        'ht-title': { en: { text: 'Home Training' }, es: { text: 'Entrenamiento a Domicilio' } },
+        'ht-subtitle': { en: { text: 'At Your Home or Surroundings' }, es: { text: 'En Tu Hogar o Alrededores' } },
+        'ht-desc': { en: { text: 'We train your dog in your home or surrounding area, in a real context, to address specific day-to-day issues: behavior at home, walks, visitors, family dynamics, and more.' }, es: { text: 'Entrenamos a tu perro en tu hogar o en sus alrededores, en un contexto real, para abordar problemas espec\u00edficos del d\u00eda a d\u00eda, como conducta en casa, paseos, visitas, din\u00e1micas familiares, etc.' } },
+        'ht-includes-label': { en: { text: 'INCLUDES:' }, es: { text: 'INCLUYE:' } },
+        'ht-li-1': { en: { text: 'Individual class at your home or nearby environment' }, es: { text: 'Clase individual en tu hogar o entorno cercano' } },
+        'ht-li-2': { en: { text: 'Practical guidance throughout the session' }, es: { text: 'Asesor\u00eda pr\u00e1ctica durante la sesi\u00f3n' } },
+        'ht-li-3': { en: { text: 'Online follow-up to resolve questions and adapt the plan' }, es: { text: 'Seguimiento online para resolver dudas y adaptar el plan' } },
+        'ht-col-plan': { en: { text: 'PLAN' }, es: { text: 'PLAN' } },
+        'ht-col-investment': { en: { text: 'INVESTMENT' }, es: { text: 'INVERSI\u00d3N' } },
+        'ht-row-1c': { en: { text: '1 class' }, es: { text: '1 clase' } },
+        'ht-row-4c': { en: { text: '4 classes' }, es: { text: '4 clases' } },
+        'ht-row-6c': { en: { text: '6 classes' }, es: { text: '6 clases' } },
+        'ht-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Home+Training*&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Entrenamiento+a+Domicilio*&type=phone_number&app_absent=0' } },
+        // Daycare
+        'dc-title': { en: { text: 'Sports Day Care' }, es: { text: 'Day Care Deportivo' } },
+        'dc-subtitle': { en: { text: 'Doggy School \u2014 More than a daycare' }, es: { text: 'Doggy School \u2014 M\u00e1s que un guardería' } },
+        'dc-desc': { en: { text: "A transformational experience. Channel your dog's energy through structure, purpose, and play. Available Monday to Wednesday, 12:00\u20138:00pm. Pick-up \u0026 drop-off available." }, es: { text: 'Una experiencia transformacional. Canaliza la energ\u00eda de tu perro a trav\u00e9s de estructura, prop\u00f3sito y juego. Disponible lunes a mi\u00e9rcoles, 12:00\u20138:00pm. Transporte disponible.' } },
+        'dc-includes-label': { en: { text: 'EACH DAY INCLUDES:' }, es: { text: 'CADA D\u00cdA INCLUYE:' } },
+        'dc-li-1': { en: { text: 'Leash practice \u0026 structured walks' }, es: { text: 'Pr\u00e1ctica de correa y paseos estructurados' } },
+        'dc-li-2': { en: { text: 'Agility or sport-based challenges' }, es: { text: 'Retos de agility o deporte' } },
+        'dc-li-3': { en: { text: 'Excursions to build focus in real environments' }, es: { text: 'Excursiones para desarrollar enfoque en entornos reales' } },
+        'dc-li-4': { en: { text: 'Guided socialization \u0026 rest time in a calm, safe space' }, es: { text: 'Socializaci\u00f3n guiada y descanso en un espacio tranquilo y seguro' } },
+        'dc-li-5': { en: { text: 'Pool day' }, es: { text: 'D\u00eda de piscina' } },
+        'dc-li-6': { en: { text: 'Transportation \u0026 hair brushing included' }, es: { text: 'Transporte y cepillado incluidos' } },
+        'dc-col-plan': { en: { text: 'PLAN' }, es: { text: 'PLAN' } },
+        'dc-col-investment': { en: { text: 'INVESTMENT' }, es: { text: 'INVERSI\u00d3N' } },
+        'dc-row-day': { en: { text: 'Daily rate' }, es: { text: 'Tarifa diaria' } },
+        'dc-note': { en: { text: 'Only a few exclusive spots available.' }, es: { text: 'Solo quedan algunos cupos exclusivos disponibles.' } },
+        'dc-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Sports+Day+Care*&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Day+Care+Deportivo*&type=phone_number&app_absent=0' } },
+        // Boarding
+        'bd-title': { en: { text: 'Purposeful Boarding' }, es: { text: 'Hospedaje con Prop\u00f3sito' } },
+        'bd-subtitle': { en: { text: 'More than a hotel stay' }, es: { text: 'M\u00e1s que un simple hotel' } },
+        'bd-desc': { en: { text: 'More than a dog hotel: we offer a structured, educational, and safe stay in a calm, carefully designed environment for each dog\u2019s well-being. Exclusive and personalized, providing close attention, clear routines, and a far richer experience than traditional boarding.' }, es: { text: 'M\u00e1s que un hotel canino: ofrecemos una estad\u00eda estructurada, educativa y segura, en un entorno tranquilo y cuidadosamente dise\u00f1ado para el bienestar de cada perro. Exclusivo y personalizado, con atenci\u00f3n cercana, rutinas claras y una experiencia mucho m\u00e1s enriquecedora.' } },
+        'bd-includes-label': { en: { text: 'INCLUDES:' }, es: { text: 'INCLUYE:' } },
+        'bd-li-1': { en: { text: 'Daily structured walks and mental enrichment' }, es: { text: 'Paseos diarios estructurados y enriquecimiento mental' } },
+        'bd-li-2': { en: { text: 'Routines that encourage good habits' }, es: { text: 'Rutinas que fomentan buenos h\u00e1bitos' } },
+        'bd-li-3': { en: { text: 'Reinforcement of limits and rules already established' }, es: { text: 'Refuerzo de l\u00edmites y normas ya trabajadas' } },
+        'bd-li-4': { en: { text: 'Daily supervision in a calm, balanced environment' }, es: { text: 'Acompa\u00f1amiento diario en un entorno supervisado y equilibrado' } },
+        'bd-li-5': { en: { text: "Photos, videos, and constant updates so you're always in the loop" }, es: { text: 'Fotos, videos y actualizaciones constantes para que est\u00e9s siempre al tanto' } },
+        'bd-col-plan': { en: { text: 'PLAN' }, es: { text: 'PLAN' } },
+        'bd-col-investment': { en: { text: 'INVESTMENT' }, es: { text: 'INVERSI\u00d3N' } },
+        'bd-row-night': { en: { text: 'Per night' }, es: { text: 'Por noche' } },
+        'bd-note': { en: { text: 'Ideal for dogs that have trained with us or for owners looking for a more exclusive and enriching stay.' }, es: { text: 'Ideal para perros que ya han entrenado con nosotros o para tutores que buscan una estad\u00eda m\u00e1s exclusiva y educativa.' } },
+        'bd-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Purposeful+Boarding*&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+servicio+de+*Hospedaje+con+Prop%C3%B3sito*&type=phone_number&app_absent=0' } },
+        // Grooming
+        'gr-title': { en: { text: 'Professional Grooming' }, es: { text: 'Grooming Profesional' } },
+        'gr-subtitle': { en: { text: 'Warm and careful handling' }, es: { text: 'Manejo c\u00e1lido y cuidadoso' } },
+        'gr-desc': { en: { text: 'Calm, professional handling adapted to each dog \u2014 ideal for sensitive dogs. Always with care, patience, and attention to detail.' }, es: { text: 'Manejo tranquilo y profesional adaptado a cada perro \u2014 ideal para perros sensibles. Siempre con cuidado, paciencia y atenci\u00f3n al detalle.' } },
+        'gr-includes-label': { en: { text: 'INCLUDES:' }, es: { text: 'INCLUYE:' } },
+        'gr-li-1': { en: { text: 'Bath' }, es: { text: 'Ba\u00f1o' } },
+        'gr-li-2': { en: { text: 'Hygiene trim' }, es: { text: 'Corte higi\u00e9nico' } },
+        'gr-li-3': { en: { text: 'Nail trim' }, es: { text: 'Corte de u\u00f1as' } },
+        'gr-li-4': { en: { text: 'Ear cleaning' }, es: { text: 'Limpieza de o\u00eddos' } },
+        'gr-li-5': { en: { text: 'Professional cut' }, es: { text: 'Corte profesional' } },
+        'gr-cta': { en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Professional+Grooming*&type=phone_number&app_absent=0' }, es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Grooming+Profesional*&type=phone_number&app_absent=0' } },
+        // Final CTA
+        'cta-title': { en: { text: 'Ready to Get Started?' }, es: { text: '\u00bfListo para Comenzar?' } },
+        'cta-desc': { en: { text: "Fill out the admission form and we\u2019ll design the right plan for your dog." }, es: { text: 'Completa el formulario de admisi\u00f3n y dise\u00f1aremos el plan ideal para tu perro.' } },
+        'cta-btn': { en: { text: 'Get Started on WhatsApp', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27d+like+to+get+started+with+The+Pets+Father&type=phone_number&app_absent=0' }, es: { text: 'Comenzar por WhatsApp', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+gustar%C3%ADa+comenzar+con+The+Pets+Father&type=phone_number&app_absent=0' } },
+        'footer-copy': { en: { text: '\u00a9 2026. All rights reserved.' }, es: { text: '\u00a9 2026. Todos los derechos reservados.' } }
+      };
+
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+        Object.keys(TRANSLATIONS).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          var t = TRANSLATIONS[id][lang];
+          if (!t) return;
+          if (t.href !== undefined) { el.href = t.href; }
+          if (t.html !== undefined) {
+            el.innerHTML = t.html;
+          } else if (t.text !== undefined) {
+            el.textContent = t.text;
+          }
+        });
+        document.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+          var active = btn.dataset.lang === lang;
+          btn.classList.toggle('lang-toggle__btn--active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        try { localStorage.setItem('tpf-lang', lang); } catch (e) { }
+      }
+
+      var saved = 'en';
+      try { saved = localStorage.getItem('tpf-lang') || 'en'; } catch (e) { }
+      applyLang(saved);
+
+      document.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { applyLang(this.dataset.lang); });
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -272,14 +272,7 @@
         <!-- Agility -->
         <article class="daycare__card reveal reveal-delay-1">
           <div class="daycare__card-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="24" x2="5" y2="14" />
-              <line x1="23" y1="24" x2="23" y2="14" />
-              <line x1="3" y1="14" x2="25" y2="14" />
-              <path d="M7 13 Q14 4 21 13" />
-              <circle cx="14" cy="7" r="1.5" fill="currentColor" stroke="none" />
-            </svg>
+            <img src="Assets/sport.png" alt="" width="28" height="28" style="object-fit:contain;">
           </div>
           <div class="daycare__card-content">
             <h3 class="daycare__card-title" id="daycare-agility-title">Agility</h3>
@@ -462,11 +455,14 @@
         <!-- Service 1 — Featured -->
         <article class="service-card service-card--featured reveal reveal-delay-1">
           <span class="service-card__tag" id="service-featured-tag">FEATURED SERVICE</span>
-          <h3 class="service-card__title" id="service-1-title">Personalized Training</h3>
-          <p class="service-card__desc" id="service-1-desc">Programs tailored to the dog and the family.</p>
+          <h3 class="service-card__title" id="service-1-title">Board &amp; Training</h3>
+          <p class="service-card__desc" id="service-1-desc">Intensive residential program: 2 to 8 weeks of daily
+            personalized training.</p>
+          <p class="service-card__price" id="service-1-price">From <strong>$1,500</strong></p>
           <div class="service-card__actions">
-            <a href="formulario.html" class="btn btn--primary" id="service-1-btn">Buy Service</a>
-            <a href="#" class="service-card__link">
+            <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+the+*Board+%26+Training*+program&type=phone_number&app_absent=0"
+              class="btn btn--primary" id="service-1-btn" target="_blank" rel="noopener noreferrer">Buy Service</a>
+            <a href="services.html#board-training" class="service-card__link">
               <span class="service-link-text" id="service-1-link">See what's included</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -478,12 +474,14 @@
 
         <!-- Service 2 -->
         <article class="service-card reveal reveal-delay-2">
-          <h3 class="service-card__title" id="service-2-title">Exclusive Care + Reinforcement</h3>
-          <p class="service-card__desc" id="service-2-desc">We are not a traditional hotel. We are a premium
-            environment.</p>
+          <h3 class="service-card__title" id="service-2-title">Purposeful Boarding</h3>
+          <p class="service-card__desc" id="service-2-desc">Structured, educational stay in a calm and carefully
+            designed environment.</p>
+          <p class="service-card__price" id="service-2-price"><strong>$80</strong> / night</p>
           <div class="service-card__actions">
-            <a href="formulario.html" class="btn btn--dark" id="service-2-btn">Buy Service</a>
-            <a href="#" class="service-card__link">
+            <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Purposeful+Boarding*&type=phone_number&app_absent=0"
+              class="btn btn--dark" id="service-2-btn" target="_blank" rel="noopener noreferrer">Buy Service</a>
+            <a href="services.html#boarding" class="service-card__link">
               <span class="service-link-text" id="service-2-link">See what's included</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -497,10 +495,13 @@
         <article class="service-card reveal reveal-delay-3">
           <h3 class="service-card__title" id="service-3-title">Sports Day Care</h3>
           <p class="service-card__subtitle" id="service-3-subtitle">Agility &amp; Disc Dog</p>
-          <p class="service-card__desc" id="service-3-desc">Designed to teach sport and emotional balance.</p>
+          <p class="service-card__desc" id="service-3-desc">Channel your dog's energy through structure, purpose, and
+            play.</p>
+          <p class="service-card__price" id="service-3-price"><strong>$50</strong> / day</p>
           <div class="service-card__actions">
-            <a href="formulario.html" class="btn btn--dark" id="service-3-btn">Buy Service</a>
-            <a href="#" class="service-card__link">
+            <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Sports+Day+Care*&type=phone_number&app_absent=0"
+              class="btn btn--dark" id="service-3-btn" target="_blank" rel="noopener noreferrer">Buy Service</a>
+            <a href="services.html#daycare" class="service-card__link">
               <span class="service-link-text" id="service-3-link">See what's included</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -509,6 +510,11 @@
             </a>
           </div>
         </article>
+      </div>
+
+      <!-- View all services CTA -->
+      <div class="services__view-all reveal" style="text-align:center;margin-top:2.5rem;">
+        <a href="services.html" class="btn btn--outline" id="services-view-all-btn">View All Services &amp; Pricing</a>
       </div>
 
       <!-- Grooming featured block -->
@@ -535,7 +541,8 @@
           </blockquote>
 
           <div class="grooming__cta">
-            <a href="formulario.html" class="btn btn--primary" id="grooming-btn">Buy Service</a>
+            <a href="https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Professional+Grooming*&type=phone_number&app_absent=0"
+              class="btn btn--primary" id="grooming-btn" target="_blank" rel="noopener noreferrer">Buy Service</a>
           </div>
         </div>
       </div>
@@ -1184,8 +1191,8 @@
           es: { text: 'Trabajo f\u00edsico y mental' }
         },
         'daycare-wide-desc': {
-          en: { text: 'Physiological and psychological training for the supreme development of every dog that joins our pack.' },
-          es: { text: 'Entrenamiento fisiol\u00f3gico y psicol\u00f3gico para un desarrollo supremo de cada perro que se une a nuestra manada.' }
+          en: { text: 'We combine physical exercise with cognitive stimulation for the holistic development of every dog ​​within our pack.' },
+          es: { text: 'Combinamos ejercicio físico con estimulación cognitiva para el desarrollo integral de cada perro dentro de nuestra manada' }
         },
         // About
         'about-title': {
@@ -1235,32 +1242,40 @@
           es: { text: 'SERVICIO ESTRELLA' }
         },
         'service-1-title': {
-          en: { text: 'Personalized Training' },
-          es: { text: 'Entrenamiento Personalizado' }
+          en: { text: 'Board &amp; Training' },
+          es: { text: 'Board &amp; Training' }
         },
         'service-1-desc': {
-          en: { text: 'Programs tailored to the dog and the family.' },
-          es: { text: 'Programas hechos a la medida del perro y de la familia.' }
+          en: { text: 'Intensive residential program: 2 to 8 weeks of daily personalized training.' },
+          es: { text: 'Programa residencial intensivo: 2 a 8 semanas de entrenamiento diario personalizado.' }
+        },
+        'service-1-price': {
+          en: { html: 'From <strong>$1,500</strong>' },
+          es: { html: 'Desde <strong>$1,500</strong>' }
         },
         'service-1-btn': {
-          en: { text: 'Buy Service' },
-          es: { text: 'Comprar Servicio' }
+          en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+the+*Board+%26+Training*+program&type=phone_number&app_absent=0' },
+          es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+programa+de+*Board+%26+Training*&type=phone_number&app_absent=0' }
         },
         'service-1-link': {
           en: { text: "See what's included" },
           es: { text: 'Ver qu\u00e9 incluye' }
         },
         'service-2-title': {
-          en: { text: 'Exclusive Care + Reinforcement' },
-          es: { text: 'Cuidado Exclusivo + Refuerzo' }
+          en: { text: 'Purposeful Boarding' },
+          es: { text: 'Hospedaje con Prop\u00f3sito' }
         },
         'service-2-desc': {
-          en: { text: 'We are not a traditional hotel. We are a premium environment.' },
-          es: { text: 'No somos un hotel tradicional. Somos un ambiente premium.' }
+          en: { text: 'Structured, educational stay in a calm and carefully designed environment.' },
+          es: { text: 'Estad\u00eda estructurada y educativa en un entorno tranquilo y cuidadosamente dise\u00f1ado.' }
+        },
+        'service-2-price': {
+          en: { html: '<strong>$80</strong> / night' },
+          es: { html: '<strong>$80</strong> / noche' }
         },
         'service-2-btn': {
-          en: { text: 'Buy Service' },
-          es: { text: 'Comprar Servicio' }
+          en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Purposeful+Boarding*&type=phone_number&app_absent=0' },
+          es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+servicio+de+*Hospedaje+con+Prop%C3%B3sito*&type=phone_number&app_absent=0' }
         },
         'service-2-link': {
           en: { text: "See what's included" },
@@ -1275,16 +1290,24 @@
           es: { text: 'Agility \u0026 Disc Dog' }
         },
         'service-3-desc': {
-          en: { text: 'Designed to teach sport and emotional balance.' },
-          es: { text: 'Dise\u00f1ado para ense\u00f1ar deporte y equilibrio emocional.' }
+          en: { text: "Channel your dog's energy through structure, purpose, and play." },
+          es: { text: 'Canaliza la energ\u00eda de tu perro a trav\u00e9s de estructura, prop\u00f3sito y juego.' }
+        },
+        'service-3-price': {
+          en: { html: '<strong>$50</strong> / day' },
+          es: { html: '<strong>$50</strong> / d\u00eda' }
         },
         'service-3-btn': {
-          en: { text: 'Buy Service' },
-          es: { text: 'Comprar Servicio' }
+          en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Sports+Day+Care*&type=phone_number&app_absent=0' },
+          es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Day+Care+Deportivo*&type=phone_number&app_absent=0' }
         },
         'service-3-link': {
           en: { text: "See what's included" },
           es: { text: 'Ver qu\u00e9 incluye' }
+        },
+        'services-view-all-btn': {
+          en: { text: 'View All Services \u0026 Pricing' },
+          es: { text: 'Ver Todos los Servicios \u0026 Precios' }
         },
         // Grooming
         'grooming-title': {
@@ -1324,8 +1347,8 @@
           es: { text: '"Siempre con manejo tranquilo, profesional y adaptado al perro."' }
         },
         'grooming-btn': {
-          en: { text: 'Buy Service' },
-          es: { text: 'Comprar Servicio' }
+          en: { text: 'Buy Service', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+I%27m+interested+in+*Professional+Grooming*&type=phone_number&app_absent=0' },
+          es: { text: 'Comprar Servicio', href: 'https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+*Grooming+Profesional*&type=phone_number&app_absent=0' }
         },
         // Why Choose Us
         'why-title': {
@@ -1496,6 +1519,7 @@
           if (!el) return;
           var t = TRANSLATIONS[id][lang];
           if (!t) return;
+          if (t.href !== undefined) { el.href = t.href; }
           if (t.html !== undefined) {
             el.innerHTML = t.html;
           } else if (t.text !== undefined) {
