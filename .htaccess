@@ -17,5 +17,19 @@
 
 # Images & fonts: cache for 30 days (these rarely change)
 <FilesMatch "\.(webp|png|jpg|jpeg|gif|svg|woff2|woff|ttf|eot)$">
-  Header set Cache-Control "public, max-age=2592000, immutable"
 </FilesMatch>
+
+# ──────────────────────────────────────────────
+# Clean URLs (Remove .html)
+# ──────────────────────────────────────────────
+RewriteEngine On
+
+# Redirect directly requested .html files to their clean URL version
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Silently map clean URLs to .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
