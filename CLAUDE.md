@@ -53,7 +53,7 @@ Use these as the source-of-truth palette unless the user overrides them:
 ## Official Links
 - Facebook: `https://www.facebook.com/thepetsfather`
 - Instagram: `https://www.instagram.com/thepetsfather/`
-- WhatsApp CTA: `https://api.whatsapp.com/send/?phone=584127922004&text=Hola%2C+me+interesa+el+servicio+de+%2ACuidado+Exclusivo%2A&type=phone_number&app_absent=0`
+- WhatsApp CTA: `https://api.whatsapp.com/send/?phone=17868996085&text=Hola%2C+me+interesa+el+servicio+de+%2ACuidado+Exclusivo%2A&type=phone_number&app_absent=0`
 
 ## High-End Website Standards
 - The site should feel premium, calm, and intentional.
